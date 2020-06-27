@@ -33,7 +33,7 @@ const Projects = ({ data: { data } }) => {
                 href={homepage}
                 target="_blank"
                 rel="nofollow noreferrer"
-                title="Demo: ${name}"
+                title={`Demo: ${name}`}
               >
                 Demo
               </a>
