@@ -6,7 +6,6 @@ const ENDPOINT =
 export async function fetchProjects() {
   try {
     const response = await axios.get(ENDPOINT)
-    console.log(response.data)
 
     return response
   } catch (error) {

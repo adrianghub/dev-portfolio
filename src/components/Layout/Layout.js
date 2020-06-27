@@ -24,8 +24,6 @@ class Layout extends Component {
   async componentDidMount() {
     const fetchedData = await fetchProjects()
 
-    console.log(fetchedData)
-
     this.setState({ data: fetchedData })
   }
 
