@@ -1,0 +1,100 @@
+.skills {
+  max-width: $pageWidth;
+  padding: 0 16px;
+  margin: 0 auto 8rem;
+
+  &__title {
+    font-size: 2.25rem;
+    margin: 0;
+    font-style: normal;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(203, 210, 217, 0.5);
+
+    @media (max-width: $mobileWidth) {
+      text-align: center;
+    }
+  }
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: .5rem;
+  padding: 8rem 0 0;
+
+  @media (max-width: $mobileWidth) {
+    grid-template-columns: 1fr;
+    padding: 5rem 0 0;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.75rem;
+    margin: 0;
+
+    &::before {
+      content: '';
+      width: 80px;
+      height: 4px;
+      display: block;
+      background: $green;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+
+      .skills-list--violet & {
+        background: $violet;
+      }
+
+      .skills-list--blue & {
+        background: $darkBlue;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-column-gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin-top: calc(1.5rem + 4px);
+  }
+
+  &__item {
+    color: $gray;
+    padding: 11px 0 11px 30px;
+    position: relative;
+
+    @media (max-width: $mobileWidth) {
+      padding-left: 20px;
+    }
+
+    &::before {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      content: '';
+      display: block;
+      width: 18px;
+      height: 18px;
+      background-image: url(../images/check-circle.svg);
+
+      .skills-list--violet & {
+        background-image: url(../images/check-violet.svg);
+      }
+
+      .skills-list--blue & {
+        background-image: url(../images/check-blue.svg);
+      }
+
+      @media (max-width: $mobileWidth) {
+        width: 12px;
+        height: 12px;
+        top: 11px;
+        background-size: contain;
+      }
+    }
+  }
+}
