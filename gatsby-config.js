@@ -12,12 +12,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `adrian-zinko-dev-portfolio`,
+        short_name: `dev-portfolio`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+        icon: `src/images/cv-icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
