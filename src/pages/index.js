@@ -3,6 +3,12 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import SEO from "../components/seo"
 
+import { setConfig } from "react-hot-loader"
+
+setConfig({
+  showReactDomPatchNotification: false,
+})
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />

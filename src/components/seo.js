@@ -74,6 +74,7 @@ function SEO({ description, lang, meta, title }) {
 
 SEO.defaultProps = {
   lang: `en`,
+  title: "Adrian Zinko Dev Portfolio",
   meta: [],
   description: ``,
 }
