@@ -51,8 +51,8 @@ const Contact = () => {
         </a>
       </div>
       <p className="contact__bottom">
-        This is a part of the results of work during the "WTF: Co ten frontend"
-        Course.
+        Result of work during the "WTF: Co ten frontend" Project. &copy;{" "}
+        {new Date().getFullYear()}
       </p>
     </footer>
   )
