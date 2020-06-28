@@ -1,9 +1,6 @@
 # AdrianGHub - Developer Portfolio in Gatsby :octocat:
 
-![Website screenshot presenting hero section](src/github/github-screen-1.png)
-![Website screenshot presenting my skills section](src/github/github-screen-2.png)
-![Website screenshot presenting recent projects section](src//github/github-screen-3.png)
-![Website screenshot presenting contact section](src/github/github-screen-4.png)
+![Website screenshot presenting hero section](src/github/github-portfolio-capture.png)
 
 
 
