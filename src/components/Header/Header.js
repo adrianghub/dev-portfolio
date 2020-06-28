@@ -13,7 +13,10 @@ const Header = () => {
         <span role="img" aria-label="Shaking hand.">
           👋
         </span>
-        I'm Adrian - third-year IT student{" "}
+        I'm Adrian
+      </h1>
+      <p className="hero__subtitle">
+        Third-year IT student{" "}
         <span role="img" aria-label="Student person.">
           👨‍🎓
         </span>
@@ -22,7 +25,7 @@ const Header = () => {
         <span role="img" aria-label="Heavy lifters.">
           🏋️‍♀️🏋️‍♂️
         </span>
-      </h1>
+      </p>
       <p className="hero__description">
         Check out
         <a className="hero__link" href="#my-skills">

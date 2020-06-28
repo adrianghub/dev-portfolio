@@ -23,7 +23,7 @@
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 3.5rem;
     max-width: 920px;
     margin: 2rem 0 1rem;
@@ -35,7 +35,7 @@
 
   &__subtitle {
     font-size: 2rem;
-    width: 80%;
+    max-width: 780px;
   }
 
   &__description {
@@ -46,7 +46,6 @@
     line-height: 2.25rem;
     max-width: 780px;
     margin-bottom: 3.75rem;
-
   }
 
   &__link {
