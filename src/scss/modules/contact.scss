@@ -1,6 +1,6 @@
 .contact {
-  background: $tomato;
-  color: #fff;
+  background: #F5F5F5;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   padding-bottom: calc(8rem - 116px);
 
   &__title {
@@ -8,7 +8,7 @@
     margin: 0 auto 1rem;
     font-style: normal;
     font-weight: 600;
-    padding: 8rem 16px 0;
+    padding: 8rem 32px 0;
     max-width: $pageWidth;
 
     &::before {
