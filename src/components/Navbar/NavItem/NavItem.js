@@ -9,11 +9,10 @@ const NavItem = ({ children, icon }) => {
     <li className="nav-item">
       <button className="icon-button" onClick={() => setDarkmode(!darkmode)}>
         {darkmode
-          ? (document.body.classList.add("darkmode"))
-          : (document.body.classList.remove("darkmode"))}
+          ? document.body.classList.add("darkmode")
+          : document.body.classList.remove("darkmode")}
 
-          {darkmode 
-          ? {icon} = '🌞' : {icon} = '🌛'}
+        {darkmode ? ({ icon } = "🌞") : ({ icon } = "🌛")}
       </button>
 
       {darkmode && children}
