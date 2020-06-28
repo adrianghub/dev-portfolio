@@ -1,6 +1,7 @@
 .projects {
-  background: $lightGray;
   padding: 8rem 0;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
 
   &__title {
     font-size: 2.25rem;
@@ -22,6 +23,7 @@
 }
 
 .projects-list {
+  color: $textColor;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1.5rem;

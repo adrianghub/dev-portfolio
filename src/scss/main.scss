@@ -1,6 +1,6 @@
 @import "_normalize";
 @import "_variables";
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap&subset=latin-ext');
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap&subset=latin-ext");
 @import "modules/nav.scss";
 @import "modules/hero.scss";
 @import "modules/skills.scss";
@@ -24,9 +24,9 @@ html {
 }
 
 body {
-  color: $bigStone;
+  color: $textColor;
   background: $bgColor;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -39,4 +39,9 @@ body {
   max-width: $pageWidth;
   padding: 0 32px;
   margin: 0 auto;
+}
+
+.darkmode {
+  background: #171f3f !important;
+  color: #fafafa;
 }
