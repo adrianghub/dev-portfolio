@@ -29,20 +29,33 @@ a {
     padding: 0 1rem;
     border-bottom: var(--border);
     display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
-
-    /* <ul> */
     &__nav {
         display: flex;
-        flex: 1;
-        justify-content: flex-end;
     }
-
 
     &__logo--image {
-        object-fit: contain;
-        width: 180px;
+        display: none;
     }
+
+    @media only screen and (min-width: 444px) {
+        &__nav {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+        }
+            /* <ul> */
+
+
+        &__logo--image {
+            display: block;
+            object-fit: contain;
+            width: 180px;
+        }
+      }
 }
 
 /* <li> */
@@ -53,6 +66,8 @@ a {
     justify-content: center;
     margin-left: 10px;
     margin-right: 10px;
+    color: #fafafa;
+    letter-spacing: 2px;
 }
 
 /* Icon Button */
