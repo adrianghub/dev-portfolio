@@ -6,9 +6,10 @@
  */
 
 import React, { Component } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PropTypes from "prop-types"
 import Navbar from "../Navbar/Navbar"
-import NavItem from "../Navbar/NavItem/NavItem"
+import NavItems from "../Navbar/NavItems/NavItems"
 import Header from "../Header/Header"
 import Skills from "../Skills/Skills"
 import Projects from "../Projects/Projects"
@@ -33,15 +34,21 @@ class Layout extends Component {
     const { data } = this.state
 
     return (
-      <div className={classes.Container}>
-        <Navbar>
-          <NavItem icon="🌛"></NavItem>
-        </Navbar>
-        <Header />
-        <Skills />
-        <Projects data={data} />
-        <Contact />
-      </div>
+      <Router>
+        <div className={classes.Container}>
+          <Switch>
+            <Route path="/">
+              <Navbar>
+                <NavItems icon="🌛" />
+              </Navbar>
+            </Route>
+          </Switch>
+          <Header />
+          <Skills />
+          <Projects data={data} />
+          <Contact />
+        </div>
+      </Router>
     )
   }
 }
