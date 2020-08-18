@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import Link from "gatsby-link"
+import React, { useState, useEffect } from "react";
+import Link from "gatsby-link";
 
 import "../../../scss/main.scss"
 

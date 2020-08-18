@@ -7,6 +7,7 @@
 
 import React, { Component } from "react"
 import PropTypes from "prop-types"
+
 import Navbar from "../Navbar/Navbar"
 import NavItems from "../Navbar/NavItems/NavItems"
 import Header from "../Header/Header"
@@ -33,15 +34,15 @@ class Layout extends Component {
     const { data } = this.state
 
     return (
-        <div className={classes.Container}>
-              <Navbar>
-                <NavItems icon="🌛" />
-              </Navbar>
-          <Header />
-          <Skills />
-          <Projects data={data} />
-          <Contact />
-        </div>
+      <div className={classes.Container}>
+        <Navbar>
+          <NavItems icon="🌛" />
+        </Navbar>
+        <Header />
+        <Skills />
+        <Projects data={data} />
+        <Contact />
+      </div>
     )
   }
 }
