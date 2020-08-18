@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 
 import "../../../scss/main.scss"
 
@@ -14,15 +13,11 @@ const NavItem = ({ children, icon }) => {
 
   return (
     <>
-    <Link className="nav__item" to='/blog'>
-      <li  className="nav__item--blog">BLOG</li>
-    </Link>
-    <Link className="nav__item" to='/login'>
-      <li className="nav__item--login">LOGIN</li>
-    </Link>
+      <li  className="nav__item nav__item--blog">BLOG</li>
+      <li className="nav__item nav__item--login">LOGIN</li>
       <li className="nav__item nav__item--darkmode">
         <button className="icon__button" onClick={() => setDarkmode(!darkmode)}>
-          {darkmode ? (icon = "🌞") : (icon = "🌛")}
+          {darkmode ? ({icon} = "🌞") : ({icon} = "🌛")}
         </button>
         {darkmode && children}
       </li>

@@ -6,7 +6,6 @@
  */
 
 import React, { Component } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import PropTypes from "prop-types"
 import Navbar from "../Navbar/Navbar"
 import NavItems from "../Navbar/NavItems/NavItems"
@@ -34,21 +33,15 @@ class Layout extends Component {
     const { data } = this.state
 
     return (
-      <Router>
         <div className={classes.Container}>
-          <Switch>
-            <Route path="/">
               <Navbar>
                 <NavItems icon="🌛" />
               </Navbar>
-            </Route>
-          </Switch>
           <Header />
           <Skills />
           <Projects data={data} />
           <Contact />
         </div>
-      </Router>
     )
   }
 }
