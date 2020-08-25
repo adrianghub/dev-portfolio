@@ -1,6 +1,6 @@
-import React, { useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import { useIntersection } from "react-use"
-import gsap from "gsap"
+import { gsap } from "gsap"
 import avatar from "../../images/my-avatar.jpg"
 
 import "../../scss/main.scss"
@@ -36,9 +36,11 @@ const Header = () => {
     })
   }
 
-  intersection && intersection.intersectionRatio < 1
+  useEffect(() => {
+    intersection && intersection.intersectionRatio < 1
     ? fadeIn(".fadeIn")
     : fadeOut(".fadeOut")
+  })
 
   return (
     <section className="hero" ref={sectionRef}>
