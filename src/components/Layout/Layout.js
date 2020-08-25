@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
 import Navbar from "../Navbar/Navbar"
@@ -19,32 +19,28 @@ import { fetchProjects } from "../../api/index"
 
 import classes from "./Layout.module.css"
 
-class Layout extends Component {
-  state = {
-    data: {},
-  }
+const Layout = () => {
+  const [data, setData] = useState({})
 
-  async componentDidMount() {
-    const fetchedData = await fetchProjects()
+  useEffect(() => {
+    async function fetchedData() {
+      const response = await fetchProjects()
+      setData(response)
+    } 
+    fetchedData();
+  }, [])
 
-    this.setState({ data: fetchedData })
-  }
-
-  render() {
-    const { data } = this.state
-
-    return (
-      <div className={classes.Container}>
-        <Navbar>
-          <NavItems icon="🌛" />
-        </Navbar>
-        <Header />
-        <Skills />
-        <Projects data={data} />
-        <Contact />
-      </div>
-    )
-  }
+  return (
+    <div className={classes.Container}>
+      <Navbar>
+        <NavItems icon="🌛" />
+      </Navbar>
+      <Header />
+      <Skills />
+      <Projects data={data} />
+      <Contact />
+    </div>
+  )
 }
 
 Layout.propTypes = {
