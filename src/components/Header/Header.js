@@ -1,21 +1,56 @@
-import React from "react"
-
+import React, { useRef } from "react"
+import { useIntersection } from "react-use"
+import gsap from "gsap"
 import avatar from "../../images/my-avatar.jpg"
 
 import "../../scss/main.scss"
 
 const Header = () => {
+  const sectionRef = useRef(null)
+
+  const intersection = useIntersection(sectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.9,
+  })
+
+  const fadeOut = (element) => {
+    gsap.to(element, 1, {
+      opacity: 0,
+      y: -20,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    })
+  }
+
+  const fadeIn = (element) => {
+    gsap.to(element, 1, {
+      opacity: 1,
+      y: -100,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    })
+  }
+
+  intersection && intersection.intersectionRatio < 1
+    ? fadeIn(".fadeIn")
+    : fadeOut(".fadeOut")
+
   return (
-    <section className="hero">
-      <img src={avatar} className="hero__image" alt="Adrian CV avatar." />
-      <h1 className="hero__title">
+    <section className="hero" ref={sectionRef}>
+      <img src={avatar} className="hero__image fadeIn" alt="Adrian CV avatar." />
+      <h1 className="hero__title fadeIn">
         Hi there{" "}
         <span role="img" aria-label="Shaking hand.">
           👋
         </span>
         I'm Adrian
       </h1>
-      <p className="hero__subtitle">
+      <p className="hero__subtitle fadeIn">
         Third-year IT student{" "}
         <span role="img" aria-label="Student person.">
           👨‍🎓
@@ -26,7 +61,7 @@ const Header = () => {
           🏋️‍♀️🏋️‍♂️
         </span>
       </p>
-      <p className="hero__description">
+      <p className="hero__description fadeIn">
         Check out
         <a className="hero__link" href="#my-skills">
           my skills

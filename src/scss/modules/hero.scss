@@ -2,9 +2,20 @@
   max-width: $pageWidth;
   padding: 8rem 16px 11.5rem;
   margin: 0 auto;
+  &:after {
+    content: "";
+    position: absolute;
+    background: $textColor;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+  }
 
   @media (max-width: $mobileWidth) {
     padding: 64px 16px 120px;
+    margin-top: 50px;
   }
 
   &__image {
@@ -28,6 +39,7 @@
     line-height: 3.5rem;
     max-width: 920px;
     margin: 2rem 0 1rem;
+    opacity: 1;
 
     @media (max-width: $mobileWidth) {
       margin: 16px 0 8px;
@@ -37,6 +49,7 @@
   &__subtitle {
     font-size: 2rem;
     max-width: 780px;
+    opacity: 1;
   }
 
   &__description {
@@ -47,6 +60,7 @@
     line-height: 2.25rem;
     max-width: 780px;
     margin-bottom: 3.75rem;
+    opacity: 1;
   }
 
   &__link {
