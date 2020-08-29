@@ -43,7 +43,7 @@ export default class Resume extends Component {
         <div className="Example">
           <div className="Example__container">
             <div className="Example__container__load">
-              <a href="http://www.pdf995.com/samples/pdf.pdf"> <CloudDownloadIcon/></a>
+              <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank"> <CloudDownloadIcon/></a>
             </div>
             <div className="Example__container__document">
               <Document
