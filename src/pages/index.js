@@ -5,14 +5,19 @@ import SEO from "../components/seo"
 
 import { setConfig } from "react-hot-loader"
 
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from '../theme';
+
 setConfig({
   showReactDomPatchNotification: false,
 })
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-  </Layout>
+  <ThemeProvider theme={theme}>
+    <Layout>
+      <SEO title="Home" />
+    </Layout>
+  </ThemeProvider>
 )
 
 export default IndexPage
