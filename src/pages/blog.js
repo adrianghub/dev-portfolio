@@ -8,6 +8,8 @@ import Box from "@material-ui/core/Box"
 import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
+import { Parallax } from 'react-parallax';
+
 
 import { fetchArticles } from "../api/index"
 
@@ -19,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     position: "relative",
+    height: '500px'
   },
   blogsContainer: {
     paddingTop: theme.spacing(3),
@@ -28,6 +31,16 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(3),
     opacity: 0.5,
   },
+  [theme.breakpoints.down('sm')]: {
+    heroImage: {
+      height: '300px',
+    },
+  },
+  [theme.breakpoints.up('lg')]: {
+    heroImage: {
+      height: '700px',
+    },
+  }
 }))
 
 const Blog = () => {
@@ -60,9 +73,14 @@ const Blog = () => {
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Box>
-        <img src={blogBanner} alt="Blog banner" className={classes.heroImage} />
-      </Box>
+      <Parallax
+            className={classes.heroImage}
+            blur={{ min: -15, max: 15 }}
+            bgImage={blogBanner}
+            bgImageAlt="the dog"
+            strength={-200}
+        >
+        </Parallax>
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
           All Articles
