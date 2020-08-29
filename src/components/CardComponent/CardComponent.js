@@ -7,6 +7,7 @@ import CardActionArea from "@material-ui/core/CardActionArea"
 import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
+import Badge from "@material-ui/core/Badge"
 import Box from "@material-ui/core/Box"
 import Avatar from "@material-ui/core/Avatar"
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -26,10 +27,25 @@ const useStyles = makeStyles({
   author: {
     display: "flex",
   },
+  categoryLabel: {
+    position: "relative",
+    top: "0",
+    left: "15%",
+  },
+  timestampLabel: {
+    position: "relative",
+    top: "0",
+    left: "35%",
+  }
 })
 
-const CardComponent = ({ data: { title } }) => {
+const CardComponent = ({ data: { title, categoryLabel, createdAt } }) => {
   const classes = useStyles()
+
+  const timestampToString = (timestamp) => {
+    const date = new Date(timestamp * 1000)
+    return `${date.getFullYear()}/${(date.getMonth() + 1)}/${date.getDate()} `
+  }
 
   return (
     <Card className={classes.card}>
@@ -39,6 +55,8 @@ const CardComponent = ({ data: { title } }) => {
           image="https://images.unsplash.com/photo-1598509524136-421cbe2c19f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=878&q=80"
           title="A bottle of vodka"
         />
+        <Badge class={classes.categoryLabel} badgeContent={categoryLabel} color="primary" />
+        <Badge class={classes.timestampLabel} badgeContent={ timestampToString(createdAt.seconds)} color="secondary" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
