@@ -27,6 +27,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^3.10.0",
     "react-parallax": "^3.0.3",
+    "react-pdf": "^5.0.0",
     "react-use": "^15.3.3"
   },
   "devDependencies": {

@@ -17,8 +17,8 @@ const NavItem = ({ children, icon }) => {
       <Link to="/blog" className="nav__item">
         <li className="nav__item nav__item--blog">BLOG</li>
       </Link>
-      <Link to="/login" className="nav__item">
-      <li className="nav__item nav__item--login">LOGIN</li>
+      <Link to="/resume" className="nav__item">
+      <li className="nav__item nav__item--resume">RESUME</li>
       </Link>
       <li className="nav__item nav__item--darkmode">
         <button className="icon__button" onClick={() => setDarkmode(!darkmode)}>
