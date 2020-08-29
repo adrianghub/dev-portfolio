@@ -12,7 +12,7 @@ import Box from "@material-ui/core/Box"
 import Avatar from "@material-ui/core/Avatar"
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: "100%",
   },
@@ -30,14 +30,27 @@ const useStyles = makeStyles({
   categoryLabel: {
     position: "relative",
     top: "0",
-    left: "15%",
+    left: "12%",
   },
   timestampLabel: {
     position: "relative",
     top: "0",
-    left: "35%",
+    left: "30%",
+  },
+  [theme.breakpoints.down('sm')]: {
+    categoryLabel: {
+      left: "10%",
+    },
+  },
+  [theme.breakpoints.down('xs')]: {
+    categoryLabel: {
+      left: "10%",
+    },
+    timestampLabel: {
+      left: "25%",
+    }
   }
-})
+}))
 
 const CardComponent = ({ data: { title, categoryLabel, createdAt } }) => {
   const classes = useStyles()
@@ -55,8 +68,8 @@ const CardComponent = ({ data: { title, categoryLabel, createdAt } }) => {
           image="https://images.unsplash.com/photo-1598509524136-421cbe2c19f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=878&q=80"
           title="A bottle of vodka"
         />
-        <Badge class={classes.categoryLabel} badgeContent={categoryLabel} color="primary" />
-        <Badge class={classes.timestampLabel} badgeContent={ timestampToString(createdAt.seconds)} color="secondary" />
+        <Badge className={classes.categoryLabel} badgeContent={categoryLabel} color="primary" />
+        <Badge className={classes.timestampLabel} badgeContent={ timestampToString(createdAt.seconds)} color="secondary" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
