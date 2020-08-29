@@ -48,11 +48,10 @@ const Blog = () => {
 
           allArticles.push(article)
         })
-        setArticles(allArticles)
+        setArticles(allArticles, setIsLoaded(true))
       }
     } 
     fetchedData();
-    setIsLoaded(true)
   }, [])
 
 
@@ -71,8 +70,8 @@ const Blog = () => {
         <Grid container spacing={3}>
           {isLoaded ?
             articles.map((article, articleId) => (
-              <Grid item xs={12} sm={6} md={4}>
-                <CardComponent key={articleId} data={article}/>
+              <Grid key={articleId} item xs={12} sm={6} md={4}>
+                <CardComponent data={article}/>
               </Grid>
             ))
             : null          
