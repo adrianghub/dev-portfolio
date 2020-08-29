@@ -37,6 +37,16 @@ a {
         display: flex;
     }
 
+    &__home--icon-wrapper {
+        display: flex;
+        margin: auto 0;
+    }
+    
+    &__home--icon {
+        height: 50px!important;
+        width: 100%!important;
+    }
+
     &__logo--image {
         display: none;
     }
@@ -55,7 +65,11 @@ a {
             object-fit: contain;
             width: 180px;
         }
-      }
+
+        &__home--icon {
+            display: none!important;
+        }
+    }
 }
 
 /* <li> */
