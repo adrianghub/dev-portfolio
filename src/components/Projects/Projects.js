@@ -61,7 +61,7 @@ const Projects = ({ data: { data } }) => {
         <h2 className="projects__title">Recent projects</h2>
         <p className="projects__description">
           I started my frontend developer path in early 2018. Since then, I’ve
-          built some projects. Here’s the list of the things I’ve done so far.
+          built some projects. Here’s the list of repositories I've worked on recently.
         </p>
         <ul className="projects-list projects__list--js">{reposInfo}</ul>
       </div>
