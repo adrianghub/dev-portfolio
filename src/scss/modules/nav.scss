@@ -107,15 +107,19 @@ a {
 .nav__item {
     color: #fafafa;
     padding: 0.5rem 1rem;
+    transition: all .3s ease;
 
     &:hover {
+        color: rgb(82, 96, 109);
         background-color: rgba(0,0,0,0.1);
         border-radius: 4px;
+        padding: 0.75rem 2rem;
     }
 
     &--darkmode:hover {
         background: none;
         border-radius: 0;
+        padding: 0.5rem 1rem;
     }
 
     @media only screen and (max-width: 828px) {
@@ -127,6 +131,7 @@ a {
         &:hover {
             background-color: rgba(0,0,0,0.2);
             border-radius: 0;
+            padding: 2rem 1rem;
         }
     }
 }
