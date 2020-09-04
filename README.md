@@ -1,4 +1,4 @@
-# AdrianGHub - Developer Portfolio in Gatsby :octocat:
+# adrianghub - Developer Portfolio in Gatsby :octocat:
 
 ![Website screenshot presenting hero section](src/github/github-portfolio-capture.png)
 
