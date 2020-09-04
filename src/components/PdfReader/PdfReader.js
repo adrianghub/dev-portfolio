@@ -5,7 +5,7 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
 import "../../scss/main.scss"
 
-import pdfFile from "../../sample.pdf"
+import pdfFile from "../../AdrianZinko-Resume2020.pdf"
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
@@ -27,7 +27,7 @@ const PdfReader = () => {
     <div className="PdfReader">
         <div className="PdfReader__container">
           <div className="PdfReader__container__load">
-            <a href="http://www.pdf995.com/samples/pdf.pdf" target="_blank" rel="noreferrer"> <CloudDownloadIcon/></a>
+            <a href="https://drive.google.com/file/d/1TKwlFvbzweOfJQoFkcLDzjVtUFsVUvOq/view?usp=sharing" target="_blank" rel="noreferrer"> <CloudDownloadIcon/></a>
           </div>
           <div className="PdfReader__container__document">
             <Document
