@@ -82,7 +82,7 @@ const Header = () => {
         </span>
       </p>
       <p className="hero__quote">
-        <i>Stop by and think out of the box with me.</i>
+        <i>Stop by and think outside the box with me.</i>
       </p>
       <a href="mailto:zinko.adrian00@gmail.com" className="hero__mail">
         zinko.adrian00@gmail.com
