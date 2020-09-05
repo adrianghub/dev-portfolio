@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react"
+import Navbar from "../Navbar/Navbar"
+import NavItems from "../Navbar/NavItems/NavItems"
 
 const Article = () => {
   return (
-    <h1>
-      New Article
-    </h1>
-  );
-};
+    <>
+      <Navbar>
+        <NavItems icon="🌛" />
+      </Navbar>
+      <h1>New Article</h1>
+    </>
+  )
+}
 
-export default Article;
+export default Article
