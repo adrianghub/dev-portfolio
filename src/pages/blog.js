@@ -54,7 +54,7 @@ const Blog = () => {
         let allArticles = []
         response.forEach(doc => {
           const article = {
-            id: doc,
+            id: doc.id,
             ...doc.data(),
           }
 

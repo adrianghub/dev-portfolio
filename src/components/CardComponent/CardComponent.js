@@ -1,4 +1,6 @@
 import React from "react"
+import Link from "gatsby-link"
+
 import avatarImage from "../../images/my-avatar.jpg"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
@@ -52,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const CardComponent = ({ data: { title, categoryLabel, createdAt } }) => {
+const CardComponent = ({ data: { title, categoryLabel, createdAt, id } }) => {
   const classes = useStyles()
 
   const timestampToString = (timestamp) => {
@@ -63,17 +65,21 @@ const CardComponent = ({ data: { title, categoryLabel, createdAt } }) => {
   return (
     <Card className={classes.card}>
       <CardActionArea>
+        <Link to= {`/article-view/${id}`}>
         <CardMedia
           className={classes.media}
           image="https://images.unsplash.com/photo-1598509524136-421cbe2c19f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=878&q=80"
           title="A bottle of vodka"
         />
+        </Link>
         <Badge className={classes.categoryLabel} badgeContent={categoryLabel} color="primary" />
         <Badge className={classes.timestampLabel} badgeContent={ timestampToString(createdAt.seconds)} color="secondary" />
         <CardContent>
+        <Link to= {`/article-view/${id}`}>
           <Typography gutterBottom variant="h5" component="h2">
             {title}
           </Typography>
+          </Link>
           <Typography variant="body2" color="textSecondary" component="p">
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica

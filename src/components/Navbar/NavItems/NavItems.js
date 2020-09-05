@@ -3,7 +3,7 @@ import Link from "gatsby-link"
 
 import "../../../scss/main.scss"
 
-import { NavItemsData } from "../navitems-data"
+import { NavItemsData } from "./data/navitems-data"
 
 const NavItem = ({ children, icon }) => {
   const [darkmode, setDarkmode] = useState(true)
