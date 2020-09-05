@@ -12,7 +12,7 @@ import CardMedia from "@material-ui/core/CardMedia"
 import Badge from "@material-ui/core/Badge"
 import Box from "@material-ui/core/Box"
 import Avatar from "@material-ui/core/Avatar"
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -39,46 +39,60 @@ const useStyles = makeStyles(theme => ({
     top: "0",
     left: "30%",
   },
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down("sm")]: {
     categoryLabel: {
       left: "10%",
     },
   },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down("xs")]: {
     categoryLabel: {
       left: "10%",
     },
     timestampLabel: {
       left: "25%",
-    }
-  }
+    },
+  },
 }))
 
 const CardComponent = ({ data: { title, categoryLabel, createdAt, id } }) => {
   const classes = useStyles()
 
-  const timestampToString = (timestamp) => {
+  const timestampToString = timestamp => {
     const date = new Date(timestamp * 1000)
-    return `${date.getFullYear()}/${(date.getMonth() + 1)}/${date.getDate()} `
+    return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} `
   }
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <Link to= {`/article-view/${id}`}>
-        <CardMedia
-          className={classes.media}
-          image="https://images.unsplash.com/photo-1598509524136-421cbe2c19f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=878&q=80"
-          title="A bottle of vodka"
-        />
+        <Link
+          to={`/article-view/${id}`}
+          state={{ data: { title, categoryLabel, createdAt } }}
+        >
+          <CardMedia
+            className={classes.media}
+            image="https://images.unsplash.com/photo-1598509524136-421cbe2c19f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=878&q=80"
+            title="A bottle of vodka"
+          />
         </Link>
-        <Badge className={classes.categoryLabel} badgeContent={categoryLabel} color="primary" />
-        <Badge className={classes.timestampLabel} badgeContent={ timestampToString(createdAt.seconds)} color="secondary" />
+        <Badge
+          className={classes.categoryLabel}
+          badgeContent={categoryLabel}
+          color="primary"
+        />
+        <Badge
+          className={classes.timestampLabel}
+          badgeContent={timestampToString(createdAt.seconds)}
+          color="secondary"
+        />
         <CardContent>
-        <Link to= {`/article-view/${id}`}>
-          <Typography gutterBottom variant="h5" component="h2">
-            {title}
-          </Typography>
+          <Link
+            to={`/article-view/${id}`}
+            state={{ data: { title, categoryLabel, createdAt } }}
+          >
+            <Typography gutterBottom variant="h5" component="h2">
+              {title}
+            </Typography>
           </Link>
           <Typography variant="body2" color="textSecondary" component="p">
             Lizards are a widespread group of squamate reptiles, with over 6,000
