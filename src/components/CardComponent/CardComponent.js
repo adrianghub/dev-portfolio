@@ -59,7 +59,7 @@ const CardComponent = ({ data: { title, categoryLabel, createdAt, id } }) => {
 
   const timestampToString = timestamp => {
     const date = new Date(timestamp * 1000)
-    return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} `
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
   }
 
   return (
