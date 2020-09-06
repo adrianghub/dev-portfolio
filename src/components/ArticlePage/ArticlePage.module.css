@@ -1,0 +1,61 @@
+.Back {
+  display: flex;
+  margin-top: 40px
+}
+
+.MuiSvgIcon-root {
+  font-size: 2.5rem!important;
+}
+
+.Article {
+  margin: 20px;
+}
+
+.ImageContainer {
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.Image {
+  opacity: 0.5;
+  object-fit: none;
+  max-height: 600px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.Title {
+  font-weight: lighter;
+  text-shadow: 
+              -1px -1px 0 #212121, 
+              1px -1px 0 #212121,
+              -1px 1px 0 #212121,
+              1px 1px 0 #212121;
+  width: 100%;
+  background-color: rgba(0,0,0,0.2);
+  padding: 20px;
+  
+}
+
+.ArticleInfo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 74%;
+}
+
+.Date {
+  text-align: center;
+  font-weight: 300;
+  font-size: 15px;
+  color: #a8a8a8;
+}
+
+.ArticleMain {
+  padding: 40px;
+  margin-left: 0;
+  width: 100%;
+  text-align: left;
+}
