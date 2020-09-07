@@ -3,17 +3,19 @@ import Link from "gatsby-link"
 
 import avatarImage from "../../images/my-avatar.jpg"
 import { makeStyles } from "@material-ui/core/styles"
-import Card from "@material-ui/core/Card"
-import Typography from "@material-ui/core/Typography"
-import CardActionArea from "@material-ui/core/CardActionArea"
-import CardActions from "@material-ui/core/CardActions"
-import CardContent from "@material-ui/core/CardContent"
-import CardMedia from "@material-ui/core/CardMedia"
-import Badge from "@material-ui/core/Badge"
-import Box from "@material-ui/core/Box"
-import Avatar from "@material-ui/core/Avatar"
+import {
+  Card,
+  Typography,
+  CardActions,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Badge,
+  Box,
+  Avatar,
+} from "@material-ui/core"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
-import parse from 'html-react-parser'
+import parse from "html-react-parser"
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -55,7 +57,17 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const CardComponent = ({ data: { title, content, categoryLabel, createdAt, id, featuredImage, lastModified } }) => {
+const CardComponent = ({
+  data: {
+    title,
+    content,
+    categoryLabel,
+    createdAt,
+    id,
+    featuredImage,
+    lastModified,
+  },
+}) => {
   const classes = useStyles()
 
   const timestampToString = timestamp => {
@@ -64,59 +76,83 @@ const CardComponent = ({ data: { title, content, categoryLabel, createdAt, id, f
   }
 
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <Link
-          to={`/article-view/${id}`}
-          state={{ data: { title, content, categoryLabel, createdAt, featuredImage, lastModified } }}
-        >
-          <CardMedia
-            className={classes.media}
-            image={featuredImage}
-            title="A bottle of vodka"
-          />
-        </Link>
-        <Badge
-          className={classes.categoryLabel}
-          badgeContent={categoryLabel}
-          color="primary"
-        />
-        <Badge
-          className={classes.timestampLabel}
-          badgeContent={timestampToString(createdAt.seconds)}
-          color="secondary"
-        />
-        <CardContent>
+    <>
+      <Card className={classes.card}>
+        <CardActionArea>
           <Link
             to={`/article-view/${id}`}
-            state={{ data: { title, content, categoryLabel, createdAt, featuredImage, lastModified } }}
+            state={{
+              data: {
+                title,
+                content,
+                categoryLabel,
+                createdAt,
+                featuredImage,
+                lastModified,
+              },
+            }}
           >
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
+            <CardMedia
+              className={classes.media}
+              image={featuredImage}
+              title="A bottle of vodka"
+            />
           </Link>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {parse(content)}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={classes.cardActions}>
-        <Box className={classes.author}>
-          <Avatar src={avatarImage} />
-          <Box ml={2}>
-            <Typography variant="subtitle2" component="p">
-              Author
+          <Badge
+            className={classes.categoryLabel}
+            badgeContent={categoryLabel}
+            color="primary"
+          />
+          <Badge
+            className={classes.timestampLabel}
+            badgeContent={timestampToString(createdAt.seconds)}
+            color="secondary"
+          />
+          <CardContent>
+            <Link
+              to={`/article-view/${id}`}
+              state={{
+                data: {
+                  title,
+                  content,
+                  categoryLabel,
+                  createdAt,
+                  featuredImage,
+                  lastModified,
+                },
+              }}
+            >
+              <Typography gutterBottom variant="h5" component="h2">
+                {title}
+              </Typography>
+            </Link>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {parse(content)}
             </Typography>
-            <Typography variant="subtitle2" color="textSecondary" component="p">
-              29 Sierpnia, 2020 roku
-            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className={classes.cardActions}>
+          <Box className={classes.author}>
+            <Avatar src={avatarImage} />
+            <Box ml={2}>
+              <Typography variant="subtitle2" component="p">
+                Author
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                color="textSecondary"
+                component="p"
+              >
+                29 Sierpnia, 2020 roku
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-        <Box>
-          <FavoriteBorderIcon />
-        </Box>
-      </CardActions>
-    </Card>
+          <Box>
+            <FavoriteBorderIcon />
+          </Box>
+        </CardActions>
+      </Card>
+    </>
   )
 }
 

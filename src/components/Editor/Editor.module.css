@@ -1,0 +1,16 @@
+.Title {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.Label {
+  margin: auto 0!important;
+  color: #fafafa!important;
+  font-size: 2rem!important;
+  margin: 5px 0;
+}
+
+.Input {
+  color: #fafafa!important;
+  font-size: 2rem!important
+}

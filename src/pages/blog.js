@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import Link from 'gatsby-link'
 import Navbar from "../components/Navbar/Navbar"
 import NavItems from "../components/Navbar/NavItems/NavItems"
 import CardComponent from "../components/CardComponent/CardComponent"
@@ -80,6 +81,9 @@ const Blog = () => {
           strength={-200}
         ></Parallax>
       </Box>
+      <Link to={"/new-article"} >
+        Create New Article
+      </Link>
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
           All Articles
