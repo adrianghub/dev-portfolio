@@ -11,8 +11,10 @@ import firebase from 'firebase';
     measurementId: "G-M6NX2431JB"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  firebase.firestore()
-
-  export default firebase;
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
+  const db = firebaseApp.firestore();
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider
+  
+  export { auth, provider };
+  export default db;

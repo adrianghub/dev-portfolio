@@ -1,10 +1,8 @@
 import axios from "axios"
-import firebase from '../firebase'
+import db from '../firebase';
 
 const ENDPOINT =
   "https://api.github.com/users/AdrianGHub/repos?sort=updated&direction=desc&per_page=6"
-
-const db = firebase.firestore()
 
 export async function fetchProjects() {
   try {
