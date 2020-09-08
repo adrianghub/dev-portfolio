@@ -26,7 +26,7 @@ const NavItem = ({ children, icon }) => {
       ))}
       {!user ? (
         <Link to={"/login"} className="nav__item">
-          <li>Login</li>
+          <li>Sign In</li>
         </Link>
       ) : (
         <li className="nav__item__logged">
