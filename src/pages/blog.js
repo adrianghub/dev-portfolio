@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Box, Container, Typography, Grid, Tooltip } from "@material-ui/core"
 import { Parallax } from "react-parallax"
 import PostAddIcon from "@material-ui/icons/PostAdd"
+import { useStateValue } from "../StateProvider"
 
 import { fetchArticles } from "../api/index"
 
@@ -57,7 +58,7 @@ const Blog = () => {
   const classes = useStyles()
   const [isLoaded, setIsLoaded] = useState(false)
   const [articles, setArticles] = useState([])
-  const [user, setUser] = useState([])
+  const [{ user }, dispatch] = useStateValue()
 
   useEffect(() => {
     async function fetchedData() {
@@ -93,17 +94,17 @@ const Blog = () => {
         ></Parallax>
       </Box>
       {!user ? (
+        <Tooltip title="Sign in to create new article">
+          <span className={classes.createPostLink}>
+            Create New Article
+            <PostAddIcon className={classes.createPostIcon} />
+          </span>
+        </Tooltip>
+      ) : (
         <Link className={classes.createPostLink} to={"/new-article"}>
           Create New Article
           <PostAddIcon className={classes.createPostIcon} />
         </Link>
-      ) : (
-        <Tooltip title="Sign in to create new article">
-        <span className={classes.createPostLink}>
-          Create New Article
-          <PostAddIcon className={classes.createPostIcon} />
-        </span>
-        </Tooltip>
       )}
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>

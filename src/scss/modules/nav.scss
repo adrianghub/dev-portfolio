@@ -122,6 +122,16 @@ a {
         padding: 0.5rem 1rem;
     }
 
+    &__avatar {
+        margin-left: 10px;
+    }
+
+    &__logged {
+        color: #fafafa;
+        display: flex;
+        align-items: center;
+    }
+
     @media only screen and (max-width: 828px) {
         text-align: center;
         padding: 2rem;

@@ -4,22 +4,46 @@ import NavItems from "../components/Navbar/NavItems/NavItems"
 import "../scss/main.scss"
 import logoImage from "../images/logo.png"
 import { Button } from "@material-ui/core"
-import { auth, provider } from '../firebase';
+import { auth, provider } from "../firebase"
+import { useStateValue } from "../StateProvider"
+import { actionTypes } from "../reducer"
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Link from 'gatsby-link'
 
-const login = () => {
+
+const Login = () => {
+  const [{ user }, dispatch] = useStateValue()
 
   const handleSignIn = () => {
     auth
-    .signInWithPopup(provider)
-    .then(result => {
-      console.log(result);
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+      .signInWithPopup(provider)
+      .then(result => {
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        })
+      })
+      .catch(error => {
+        alert(error.message)
+      })
   }
 
-  return (
+  return user ? (
+    <>
+      <Navbar>
+        <NavItems icon="🌛" />
+      </Navbar>
+      <div className="login">
+        <div className="login__container">
+          <img src={user?.photoURL} alt="Logged user avatar" />
+          <h1>
+            Hello, {user?.displayName}
+          </h1>
+          <Link to="/blog"><ArrowBackIcon /><span>Back To Blog Page</span></Link>
+        </div>
+      </div>
+    </>
+  ) : (
     <>
       <Navbar>
         <NavItems icon="🌛" />
@@ -39,4 +63,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

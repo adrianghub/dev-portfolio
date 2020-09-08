@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react"
 import Link from "gatsby-link"
+import { useStateValue } from "../../../StateProvider"
 
 import "../../../scss/main.scss"
 
 import { NavItemsData } from "./data/navitems-data"
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { Avatar } from "@material-ui/core"
 
 const NavItem = ({ children, icon }) => {
   const [darkmode, setDarkmode] = useState(true)
-  const [user, setUser] = useState(null)
+  const [{ user }, dispatch] = useStateValue()
 
   useEffect(() => {
     darkmode
@@ -28,7 +29,10 @@ const NavItem = ({ children, icon }) => {
           <li>Login</li>
         </Link>
       ) : (
-        <li>{user} <AccountCircleIcon /></li>
+        <li className="nav__item__logged">
+          {user?.displayName}{" "}
+          <Avatar className="nav__item__avatar" src={user?.photoURL} alt={user?.displayName} />
+        </li>
       )}
 
       <li className="nav__item nav__item--darkmode">
