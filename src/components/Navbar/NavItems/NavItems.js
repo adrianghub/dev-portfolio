@@ -7,9 +7,9 @@ import "../../../scss/main.scss"
 import { NavItemsData } from "./data/navitems-data"
 import { Avatar } from "@material-ui/core"
 
-const NavItem = ({ children, icon }) => {
+const NavItems = ({ children, icon }) => {
   const [darkmode, setDarkmode] = useState(true)
-  const [{ user }, dispatch] = useStateValue()
+  const [{ user }] = useStateValue()
 
   useEffect(() => {
     darkmode
@@ -45,4 +45,4 @@ const NavItem = ({ children, icon }) => {
   )
 }
 
-export default NavItem
+export default NavItems
