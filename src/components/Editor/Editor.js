@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
+import Quill from 'react-quill'
 
 class Editor extends Component {
   constructor(props) {
@@ -26,13 +27,6 @@ class Editor extends Component {
         lastModified: new Date(),
         createUserId: "",
       },
-    }
-    this.quill = require("react-quill")
-  }
-
-  componentDidMount() {
-    if (document) {
-      this.quill = this.quill;
     }
   }
 
@@ -97,8 +91,6 @@ class Editor extends Component {
       lastModified,
     } = this.state.articleData
 
-    const Quill = this.quill
-
     return (
       <Container>
         <h2 className={classes.Title}>Create New Article</h2>
@@ -116,7 +108,7 @@ class Editor extends Component {
               />
             </FormControl>
             <FormControl fullWidth>
-              {Quill ? (
+              {document ? (
                 <Quill
                   ref={el => {
                     this.reactQuillRef = el
