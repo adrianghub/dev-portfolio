@@ -1,3 +1,14 @@
+.Back {
+  display: flex;
+  align-items: center;
+  margin-top: 40px
+}
+
+.BackText {
+  margin-left: 5px;
+}
+
+
 .Title {
   margin: 30px 0;
   text-align: center;

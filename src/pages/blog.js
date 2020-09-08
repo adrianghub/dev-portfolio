@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import Link from 'gatsby-link'
+import Link from "gatsby-link"
 import Navbar from "../components/Navbar/Navbar"
 import NavItems from "../components/Navbar/NavItems/NavItems"
 import CardComponent from "../components/CardComponent/CardComponent"
@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
 import { Parallax } from "react-parallax"
+import PostAddIcon from "@material-ui/icons/PostAdd"
 
 import { fetchArticles } from "../api/index"
 
@@ -30,6 +31,14 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 300,
     paddingBottom: theme.spacing(3),
     opacity: 0.5,
+  },
+  createPostLink: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '40px',
+  },
+  createPostIcon: {
+    marginLeft: '5px',
   },
   [theme.breakpoints.down("sm")]: {
     heroImage: {
@@ -81,8 +90,8 @@ const Blog = () => {
           strength={-200}
         ></Parallax>
       </Box>
-      <Link to={"/new-article"} >
-        Create New Article
+      <Link className={classes.createPostLink} to={"/new-article"}>Create New Article
+        <PostAddIcon className={classes.createPostIcon}/>
       </Link>
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>

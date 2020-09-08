@@ -3,6 +3,10 @@
   margin-top: 40px
 }
 
+.BackText {
+  margin-left: 5px;
+}
+
 .MuiSvgIcon-root {
   font-size: 2.5rem!important;
 }

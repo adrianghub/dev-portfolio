@@ -20,7 +20,7 @@ const ArticlePage = ({ articleData }) => {
 
   return (
     <Container>
-      <Link class={classes.Back} to="/blog"><ArrowBackIcon /></Link>
+      <Link class={classes.Back} to="/blog"><ArrowBackIcon /><span className={classes.BackText}>All Articles</span></Link>
       <div className={classes.Article}>
         <div className={classes.ImageContainer}>
           <img className={classes.Image} src={featuredImage} alt={title} />

@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import Link from 'gatsby-link'
 import {
   Container,
   Card,
@@ -10,6 +11,7 @@ import {
   Input,
   Button,
 } from "@material-ui/core"
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
 
@@ -94,7 +96,9 @@ class Editor extends Component {
       typeof window === "object" ? require("react-quill") : () => false
 
     return (
+      <>
       <Container>
+      <Link class={classes.Back} to="/blog"><ArrowBackIcon /><span className={classes.BackText}>All Articles</span></Link>
         <h2 className={classes.Title}>Create New Article</h2>
         <Grid container spacing={3}>
           <Grid item xl={9} lg={9} md={8} sm={12} xs={12}>
@@ -129,6 +133,7 @@ class Editor extends Component {
           </Grid>
         </Grid>
       </Container>
+      </>
     )
   }
 }
