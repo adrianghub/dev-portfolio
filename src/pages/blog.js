@@ -5,10 +5,7 @@ import NavItems from "../components/Navbar/NavItems/NavItems"
 import CardComponent from "../components/CardComponent/CardComponent"
 import blogBanner from "../images/blog-banner.png"
 import { makeStyles } from "@material-ui/core/styles"
-import Box from "@material-ui/core/Box"
-import Container from "@material-ui/core/Container"
-import Typography from "@material-ui/core/Typography"
-import Grid from "@material-ui/core/Grid"
+import { Box, Container, Typography, Grid, Tooltip } from "@material-ui/core"
 import { Parallax } from "react-parallax"
 import PostAddIcon from "@material-ui/icons/PostAdd"
 
@@ -33,21 +30,25 @@ const useStyles = makeStyles(theme => ({
     opacity: 0.5,
   },
   createPostLink: {
-    display: 'flex',
-    alignItems: 'center',
-    marginLeft: '40px',
+    marginLeft: "40px",
   },
   createPostIcon: {
-    marginLeft: '5px',
+    marginLeft: "5px",
   },
   [theme.breakpoints.down("sm")]: {
     heroImage: {
       height: "300px",
     },
+    createPostLink: {
+      width: "100%",
+    },
   },
   [theme.breakpoints.up("lg")]: {
     heroImage: {
       height: "700px",
+    },
+    createPostLink: {
+      width: "20%",
     },
   },
 }))
@@ -56,6 +57,7 @@ const Blog = () => {
   const classes = useStyles()
   const [isLoaded, setIsLoaded] = useState(false)
   const [articles, setArticles] = useState([])
+  const [user, setUser] = useState([])
 
   useEffect(() => {
     async function fetchedData() {
@@ -90,9 +92,19 @@ const Blog = () => {
           strength={-200}
         ></Parallax>
       </Box>
-      <Link className={classes.createPostLink} to={"/new-article"}>Create New Article
-        <PostAddIcon className={classes.createPostIcon}/>
-      </Link>
+      {!user ? (
+        <Link className={classes.createPostLink} to={"/new-article"}>
+          Create New Article
+          <PostAddIcon className={classes.createPostIcon} />
+        </Link>
+      ) : (
+        <Tooltip title="Sign in to create new article">
+        <span className={classes.createPostLink}>
+          Create New Article
+          <PostAddIcon className={classes.createPostIcon} />
+        </span>
+        </Tooltip>
+      )}
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
           All Articles

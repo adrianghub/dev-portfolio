@@ -9,9 +9,4 @@ export const NavItemsData = [
     url: "/resume",
     class: "nav__item",
   },
-  {
-    title: "Login",
-    url: "/login",
-    class: "nav__item",
-  },
 ]
