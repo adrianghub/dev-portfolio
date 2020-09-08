@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Navbar from "../components/Navbar/Navbar"
 import NavItems from "../components/Navbar/NavItems/NavItems"
 import Editor from "../components/Editor/Editor"

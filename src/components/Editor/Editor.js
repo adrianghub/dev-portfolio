@@ -11,14 +11,11 @@ import {
   Button,
 } from "@material-ui/core"
 import classes from "./Editor.module.css"
-import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 
 class Editor extends Component {
   constructor(props) {
     super(props)
-    this.quillRef = null
-    this.reactQuillRef = null
     this.state = {
       articleData: {
         title: "",
@@ -29,6 +26,9 @@ class Editor extends Component {
         lastModified: new Date(),
         createUserId: "",
       },
+    }
+    if (document) {
+      this.quill = require("react-quill")
     }
   }
 
@@ -93,6 +93,8 @@ class Editor extends Component {
       lastModified,
     } = this.state.articleData
 
+    const Quill = this.quill
+
     return (
       <Container>
         <h2 className={classes.Title}>Create New Article</h2>
@@ -110,16 +112,18 @@ class Editor extends Component {
               />
             </FormControl>
             <FormControl fullWidth>
-              <ReactQuill
-                ref={el => {
-                  this.reactQuillRef = el
-                }}
-                onChange={e => this.onChangeArticleContent(e)}
-                theme={"snow"}
-                modules={this.modules}
-                format={this.formats}
-                value={content}
-              />
+              {Quill ? (
+                <Quill
+                  ref={el => {
+                    this.reactQuillRef = el
+                  }}
+                  onChange={e => this.onChangeArticleContent(e)}
+                  theme={"snow"}
+                  modules={this.modules}
+                  format={this.formats}
+                  value={content}
+                />
+              ) : null}
             </FormControl>
           </Grid>
           <Grid item xl={3} lg={3} md={4} sm={12} xs={12}>
