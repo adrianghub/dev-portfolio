@@ -27,8 +27,12 @@ class Editor extends Component {
         createUserId: "",
       },
     }
+    this.quill = require("react-quill")
+  }
+
+  componentDidMount() {
     if (document) {
-      this.quill = require("react-quill")
+      this.quill = this.quill;
     }
   }
 
