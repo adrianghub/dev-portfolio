@@ -20,7 +20,7 @@ const NewArticle = ({location}) => {
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Editor createUserId={createUserId.createUserId}/>
+      <Editor createUserId={createUserId?.createUserId}/>
     </>
   )
 }
