@@ -126,7 +126,7 @@ const CardComponent = ({
                 {title}
               </Typography>
             </Link>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" color="textSecondary" component="div">
               {parse(content)}
             </Typography>
           </CardContent>

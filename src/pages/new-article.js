@@ -1,16 +1,28 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Navbar from "../components/Navbar/Navbar"
 import NavItems from "../components/Navbar/NavItems/NavItems"
 import Editor from "../components/Editor/Editor"
 
-const NewArticle = () => {
+const NewArticle = ({location}) => {
+  const { state = {} } = location
+  const [ createUserId, setcreateUserId ] = useState(null)
+
+  useEffect(() => {
+    if (typeof state !== "undefined") {
+        setcreateUserId({
+          createUserId: state.createUserId,
+        })
+    }
+  }, [])
+
+  console.log(createUserId)
 
   return (
     <>
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Editor />
+      <Editor createUserId={createUserId}/>
     </>
   )
 }

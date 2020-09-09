@@ -101,7 +101,7 @@ const Blog = () => {
           </span>
         </Tooltip>
       ) : (
-        <Link className={classes.createPostLink} to={"/new-article"}>
+        <Link className={classes.createPostLink} to="/new-article" state={{createUserId: user?.uid}}>
           Create New Article
           <PostAddIcon className={classes.createPostIcon} />
         </Link>

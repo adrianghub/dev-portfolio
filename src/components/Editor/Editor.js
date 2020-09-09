@@ -16,6 +16,7 @@ import {
 import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
+import db from '../../firebase';
 
 class Editor extends Component {
   constructor(props) {
@@ -89,7 +90,18 @@ class Editor extends Component {
     })
   }
 
-  render() {
+  onSubmitArticle = () => {
+    const article = this.state.articleData
+    article.createUserId = this.props.createUserId
+    db.collection("Articles")
+    .add(article)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => console.log(error))
+  }
+
+  render() {  
     const {
       title,
       content,
@@ -158,7 +170,7 @@ class Editor extends Component {
                   <div className={classes.buttonWrapper}>
                     <Button
                       color="secondary"
-                      onClick={() => console.log(this.state.articleData)}
+                      onClick={() => this.onSubmitArticle()}
                     >
                       Submit
                     </Button>
