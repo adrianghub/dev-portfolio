@@ -25,3 +25,9 @@
   color: #fafafa!important;
   font-size: 2rem!important
 }
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

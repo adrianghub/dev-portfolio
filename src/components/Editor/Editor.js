@@ -3,13 +3,16 @@ import Link from "gatsby-link"
 import {
   Container,
   Card,
-  CardHeader,
   CardContent,
   Grid,
   FormControl,
   InputLabel,
   Input,
   Button,
+  Select,
+  Typography,
+  CardActions,
+  MenuItem,
 } from "@material-ui/core"
 import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import classes from "./Editor.module.css"
@@ -127,9 +130,31 @@ class Editor extends Component {
               </FormControl>
             </Grid>
             <Grid item xl={3} lg={3} md={4} sm={12} xs={12}>
-              <Button onClick={() => console.log(this.state.articleData)}>
-                CLICK
-              </Button>
+              <Card className={classes.Card}>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Settings
+                  </Typography>
+                  <FormControl fullWidth>
+                    <InputLabel id="publish">Publish</InputLabel>
+                    <Select
+                      labelId="publish"
+                      id="publish"
+                    >
+                      <MenuItem value="false">False</MenuItem>
+                      <MenuItem value="true">True</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <div className={classes.buttonWrapper}>
+                    <Button
+                      color="secondary"
+                      onClick={() => console.log(this.state.articleData)}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </Grid>
           </Grid>
         </Container>
