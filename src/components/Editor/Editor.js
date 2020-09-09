@@ -11,7 +11,6 @@ import {
   Button,
   Select,
   Typography,
-  CardActions,
   MenuItem,
 } from "@material-ui/core"
 import ArrowBackIcon from "@material-ui/icons/ArrowBack"
@@ -81,6 +80,15 @@ class Editor extends Component {
     })
   }
 
+  onChangePublish = value => {
+    return this.setState({
+      articleData: {
+        ...this.state.articleData,
+        isPublish: value === "true",
+      },
+    })
+  }
+
   render() {
     const {
       title,
@@ -138,8 +146,10 @@ class Editor extends Component {
                   <FormControl fullWidth>
                     <InputLabel id="publish">Publish</InputLabel>
                     <Select
+                      defaultValue
                       labelId="publish"
                       id="publish"
+                      onChange={(e) => this.onChangePublish(e.target.value)}
                     >
                       <MenuItem value="false">False</MenuItem>
                       <MenuItem value="true">True</MenuItem>
