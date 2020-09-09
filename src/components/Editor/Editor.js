@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Link from "gatsby-link"
+
 import {
   Container,
   Card,
@@ -16,7 +17,7 @@ import {
 import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
-import db from '../../firebase';
+import db from "../../firebase"
 
 class Editor extends Component {
   constructor(props) {
@@ -90,18 +91,24 @@ class Editor extends Component {
     })
   }
 
-  onSubmitArticle = () => {
-    const article = this.state.articleData
-    article.createUserId = this.props.createUserId
-    db.collection("Articles")
-    .add(article)
-    .then(response => {
-      console.log(response)
-    })
-    .catch(error => console.log(error))
+  onSubmitArticle = async () => {
+    if (
+      this.state.articleData.title === "" ||
+      this.state.articleData.content === ""
+    ) {
+      return alert("First fill the title and content fields.")
+    }
+    try {
+      const article = this.state.articleData
+      article.createUserId = this.props.createUserId
+      const articlesCollection = await db.collection("Articles").add(article)
+      return articlesCollection
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  render() {  
+  render() {
     const {
       title,
       content,
@@ -111,8 +118,6 @@ class Editor extends Component {
       isPublish,
       lastModified,
     } = this.state.articleData
-
-    console.log(this.props.createUserId)
 
     const ReactQuill =
       typeof window === "object" ? require("react-quill") : () => false
@@ -128,7 +133,7 @@ class Editor extends Component {
           <Grid container spacing={3}>
             <Grid item xl={9} lg={9} md={8} sm={12} xs={12}>
               <FormControl fullWidth>
-                <InputLabel className={classes.Label}>Title</InputLabel>
+                <InputLabel color="primary" className={classes.Label}>Title</InputLabel>
                 <Input
                   className={classes.Input}
                   name="articleTitle"
@@ -163,7 +168,7 @@ class Editor extends Component {
                       defaultValue
                       labelId="publish"
                       id="publish"
-                      onChange={(e) => this.onChangePublish(e.target.value)}
+                      onChange={e => this.onChangePublish(e.target.value)}
                     >
                       <MenuItem value="false">False</MenuItem>
                       <MenuItem value="true">True</MenuItem>
@@ -172,9 +177,14 @@ class Editor extends Component {
                   <div className={classes.buttonWrapper}>
                     <Button
                       color="secondary"
+                      variant="contained"
                       onClick={() => this.onSubmitArticle()}
                     >
-                      Submit
+                      {content !== "" && title !== "" ? (
+                        <Link to="/blog">Submit</Link>
+                      ) : (
+                        <a>Submit</a>
+                      )}
                     </Button>
                   </div>
                 </CardContent>

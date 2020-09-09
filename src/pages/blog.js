@@ -58,7 +58,7 @@ const Blog = () => {
   const classes = useStyles()
   const [isLoaded, setIsLoaded] = useState(false)
   const [articles, setArticles] = useState([])
-  const [{ user }, dispatch] = useStateValue()
+  const [{ user }] = useStateValue()
 
   useEffect(() => {
     async function fetchedData() {

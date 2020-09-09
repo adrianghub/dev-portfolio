@@ -39,7 +39,7 @@ const Login = () => {
           <h1>
             Hello, {user?.displayName}
           </h1>
-          <Link to="/blog"><ArrowBackIcon /><span>Back To Blog Page</span></Link>
+          <Button variant="contained" color="secondary"><Link className="back" to="/blog"><ArrowBackIcon/>Back To Blog Page</Link></Button>
         </div>
       </div>
     </>
