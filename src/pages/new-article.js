@@ -15,14 +15,12 @@ const NewArticle = ({location}) => {
     }
   }, [])
 
-  console.log(createUserId)
-
   return (
     <>
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Editor createUserId={createUserId}/>
+      <Editor createUserId={createUserId.createUserId}/>
     </>
   )
 }
