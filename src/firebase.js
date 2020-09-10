@@ -16,9 +16,9 @@ import firebase from 'firebase';
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider()
 
-  if (firebase.storage) {
+  if (!firebase.storage) {
     const storageRef = firebase.storage().ref()
-    // perform production stuff ...
+    return storageRef;
   }
   
   export { storageRef, 
