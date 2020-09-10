@@ -17,5 +17,5 @@ import firebase from 'firebase';
   const provider = new firebase.auth.GoogleAuthProvider()
 
   
-  export { firebaseApp, auth, provider };
+  export { auth, provider };
   export default { db };
