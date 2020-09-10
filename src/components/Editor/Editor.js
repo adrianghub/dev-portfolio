@@ -19,7 +19,9 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
-import { storage } from "../../firebase"
+import * as firebase from '../../firebase';
+
+const storage = firebase.storage();
 
 class Editor extends Component {
   constructor(props) {
