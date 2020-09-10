@@ -8,8 +8,6 @@ const NewArticle = ({location}) => {
   const [ createUserId, setcreateUserId ] = useState(null)
   const [ author, setAuthor ] = useState(null)
 
-  console.log(state.author.author);
-
   useEffect(() => {
     if (typeof state !== "undefined") {
         setcreateUserId({
