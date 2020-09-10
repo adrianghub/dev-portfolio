@@ -7,8 +7,7 @@ const NewArticle = ({location}) => {
   const { state = {} } = location
   const [ createUserId, setcreateUserId ] = useState(null)
   const [ author, setAuthor ] = useState(null)
-
-  console.log(state.author.author);
+  const [ avatarImage, setAvatarImage ] = useState(null)
 
   useEffect(() => {
     if (typeof state !== "undefined") {
@@ -18,6 +17,9 @@ const NewArticle = ({location}) => {
         setAuthor({
           author: state.author,
         })
+        setAvatarImage({
+          avatarImage: state.avatarImage,
+        })
     }
   }, [])
 
@@ -26,7 +28,7 @@ const NewArticle = ({location}) => {
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Editor createUserId={createUserId?.createUserId} displayName={author?.author}/>
+      <Editor createUserId={createUserId?.createUserId} displayName={author?.author} photoURL={avatarImage?.avatarImage}/>
     </>
   )
 }
