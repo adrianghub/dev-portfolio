@@ -24,6 +24,7 @@ class Editor extends Component {
     super(props)
     this.state = {
       articleData: {
+        author: "",
         title: "",
         content: "",
         createdAt: new Date(),
@@ -101,6 +102,7 @@ class Editor extends Component {
     try {
       const article = this.state.articleData
       article.createUserId = this.props.createUserId
+      article.author = this.props.displayName
       const articlesCollection = await db.collection("Articles").add(article)
       return articlesCollection
     } catch (error) {
@@ -112,12 +114,13 @@ class Editor extends Component {
     const {
       title,
       content,
-      createUserId,
       createdAt,
       featuredImage,
       isPublish,
       lastModified,
     } = this.state.articleData
+
+    console.log(this.props.displayName)
 
     const ReactQuill =
       typeof window === "object" ? require("react-quill") : () => false

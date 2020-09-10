@@ -6,11 +6,17 @@ import Editor from "../components/Editor/Editor"
 const NewArticle = ({location}) => {
   const { state = {} } = location
   const [ createUserId, setcreateUserId ] = useState(null)
+  const [ author, setAuthor ] = useState(null)
+
+  console.log(state.author.author);
 
   useEffect(() => {
     if (typeof state !== "undefined") {
         setcreateUserId({
           createUserId: state.createUserId,
+        })
+        setAuthor({
+          author: state.author,
         })
     }
   }, [])
@@ -20,7 +26,7 @@ const NewArticle = ({location}) => {
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Editor createUserId={createUserId?.createUserId}/>
+      <Editor createUserId={createUserId?.createUserId} displayName={author?.author}/>
     </>
   )
 }

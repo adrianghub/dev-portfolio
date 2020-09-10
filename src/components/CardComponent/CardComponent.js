@@ -59,6 +59,7 @@ const useStyles = makeStyles(theme => ({
 
 const CardComponent = ({
   data: {
+    author,
     title,
     content,
     categoryLabel,
@@ -83,6 +84,7 @@ const CardComponent = ({
             to={`/article-view/${id}`}
             state={{
               data: {
+                author,
                 title,
                 content,
                 categoryLabel,
@@ -113,6 +115,7 @@ const CardComponent = ({
               to={`/article-view/${id}`}
               state={{
                 data: {
+                  author,
                   title,
                   content,
                   categoryLabel,
@@ -136,7 +139,7 @@ const CardComponent = ({
             <Avatar src={avatarImage} />
             <Box ml={2}>
               <Typography variant="subtitle2" component="p">
-                Author
+                {author}
               </Typography>
               <Typography
                 variant="subtitle2"
