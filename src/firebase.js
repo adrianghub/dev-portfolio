@@ -13,10 +13,16 @@ import firebase from 'firebase';
   // Initialize Firebase
   const firebaseApp = firebase.initializeApp(firebaseConfig);
   const db = firebaseApp.firestore();
-  const storage = firebase.storage();
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider()
+
+  if (!firebase.storage) {
+    // prevent crash when working locally
+    return;
+}
+const storageRef = firebase.storage().ref()
+// perform production stuff ...
   
-  export { storage, 
+  export { storageRef, 
     auth, provider };
   export default db;
