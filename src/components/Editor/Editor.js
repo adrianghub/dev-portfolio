@@ -130,9 +130,6 @@ class Editor extends Component {
 
   handleImageUpload = e => {
     return new Promise(async (resolve, reject) => {
-      if (!firebase.storage) {
-        return;
-      }
       const storage = firebase.storage();
       const file = e.target.files[0]
       const fileName = uuidv4()
