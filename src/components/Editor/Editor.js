@@ -185,7 +185,6 @@ class Editor extends Component {
                   <FormControl fullWidth>
                     <InputLabel>Category Label</InputLabel>
                     <Input
-                      defaultValue
                       name="categoryLabel"
                       id="categoryLabel"
                       onChange={e => this.onChangeCategoryLabel(e.target.value)}
