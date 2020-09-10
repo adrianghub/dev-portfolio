@@ -18,4 +18,4 @@ import firebase from 'firebase';
 
   
   export { auth, provider };
-  export default { db, firebaseApp };
+  export default db;
