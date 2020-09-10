@@ -133,7 +133,7 @@ class Editor extends Component {
       if(!firebaseApp.storage) {
         return;
       }
-      const storage = firebaseApp.storage();
+      const storage = await firebaseApp.storage();
       const file = e.target.files[0]
       const fileName = uuidv4()
       storage
