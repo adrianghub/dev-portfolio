@@ -19,7 +19,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
-import { storage } from "../../firebase"
+import * as firebase from '../../firebase'
 
 class Editor extends Component {
   constructor(props) {
@@ -130,6 +130,10 @@ class Editor extends Component {
 
   handleImageUpload = e => {
     return new Promise(async (resolve, reject) => {
+      if (!firebase.storage) {
+        return;
+      }
+      const storage = firebase.storage();
       const file = e.target.files[0]
       const fileName = uuidv4()
       storage
