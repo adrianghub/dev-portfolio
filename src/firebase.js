@@ -18,8 +18,8 @@ import firebase from 'firebase';
 
   if (!firebase.storage) {
     // prevent crash when working locally
-    return;
-}
+    return null;
+  }
 const storageRef = firebase.storage().ref()
 // perform production stuff ...
   
