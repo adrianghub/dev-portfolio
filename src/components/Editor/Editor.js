@@ -122,8 +122,6 @@ class Editor extends Component {
       lastModified,
     } = this.state.articleData
 
-    console.log(this.props.photoURL)
-
     const ReactQuill =
       typeof window === "object" ? require("react-quill") : () => false
 

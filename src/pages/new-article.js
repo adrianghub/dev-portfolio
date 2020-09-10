@@ -9,8 +9,6 @@ const NewArticle = ({location}) => {
   const [ author, setAuthor ] = useState(null)
   const [ avatarImage, setAvatarImage ] = useState(null)
 
-  console.log(state.avatarImage)
-
   useEffect(() => {
     if (typeof state !== "undefined") {
         setcreateUserId({
