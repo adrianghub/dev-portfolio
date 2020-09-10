@@ -21,12 +21,6 @@ import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
 import * as firebase from "../../firebase"
 
-if (!firebase.storage) {
-  return;
-}
-
-const storageRef = firebase.storage().ref()
-
 class Editor extends Component {
   constructor(props) {
     super(props)
@@ -136,6 +130,10 @@ class Editor extends Component {
 
   handleImageUpload = e => {
     return new Promise(async (resolve, reject) => {
+      if (!firebase.storage) {
+        return;
+      }
+      const storageRef = firebase.storage().ref()
       const file = e.target.files[0]
       const fileName = uuidv4()
       storageRef
