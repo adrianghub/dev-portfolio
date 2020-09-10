@@ -148,7 +148,7 @@ const CardComponent = ({
                 color="textSecondary"
                 component="p"
               >
-                29 Sierpnia, 2020 roku
+                <strong>{timestampToString(lastModified.seconds)}</strong>
               </Typography>
             </Box>
           </Box>

@@ -60,8 +60,6 @@ const Blog = () => {
   const [articles, setArticles] = useState([])
   const [{ user }] = useStateValue()
 
-  console.log(user)
-
   useEffect(() => {
     async function fetchedData() {
       const response = await fetchArticles()

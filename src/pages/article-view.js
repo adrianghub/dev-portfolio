@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Navbar from "../components/Navbar/Navbar"
 import NavItems from "../components/Navbar/NavItems/NavItems"
-import ArticlePage from '../components/ArticlePage/ArticlePage'
+import ArticlePage from "../components/ArticlePage/ArticlePage"
 
 const ArticleView = ({ location }) => {
   const { state = {} } = location
@@ -17,6 +17,7 @@ const ArticleView = ({ location }) => {
         setIsLoaded(true)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

@@ -3,24 +3,25 @@ import Navbar from "../components/Navbar/Navbar"
 import NavItems from "../components/Navbar/NavItems/NavItems"
 import Editor from "../components/Editor/Editor"
 
-const NewArticle = ({location}) => {
+const NewArticle = ({ location }) => {
   const { state = {} } = location
-  const [ createUserId, setcreateUserId ] = useState(null)
-  const [ author, setAuthor ] = useState(null)
-  const [ avatarImage, setAvatarImage ] = useState(null)
+  const [createUserId, setcreateUserId] = useState(null)
+  const [author, setAuthor] = useState(null)
+  const [avatarImage, setAvatarImage] = useState(null)
 
   useEffect(() => {
     if (typeof state !== "undefined") {
-        setcreateUserId({
-          createUserId: state.createUserId,
-        })
-        setAuthor({
-          author: state.author,
-        })
-        setAvatarImage({
-          avatarImage: state.avatarImage,
-        })
+      setcreateUserId({
+        createUserId: state.createUserId,
+      })
+      setAuthor({
+        author: state.author,
+      })
+      setAvatarImage({
+        avatarImage: state.avatarImage,
+      })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -28,7 +29,11 @@ const NewArticle = ({location}) => {
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
-      <Editor createUserId={createUserId?.createUserId} displayName={author?.author} photoURL={avatarImage?.avatarImage}/>
+      <Editor
+        createUserId={createUserId?.createUserId}
+        displayName={author?.author}
+        photoURL={avatarImage?.avatarImage}
+      />
     </>
   )
 }

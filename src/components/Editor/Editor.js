@@ -28,6 +28,7 @@ class Editor extends Component {
         avatarImage: "",
         title: "",
         content: "",
+        categoryLabel: "",
         createdAt: new Date(),
         featuredImage: "",
         isPublish: false,
@@ -93,12 +94,25 @@ class Editor extends Component {
     })
   }
 
+  onChangeCategoryLabel = value => {
+    return this.setState({
+      articleData: {
+        ...this.state.articleData,
+        categoryLabel: value,
+      },
+    })
+  }
+
   onSubmitArticle = async () => {
     if (
       this.state.articleData.title === "" ||
-      this.state.articleData.content === ""
+      this.state.articleData.content === "" ||
+      this.state.articleData.categoryLabel === ""
     ) {
-      return alert("First fill the title and content fields.")
+      return alert("First fill the title, content and category label fields.")
+    }
+    if (this.state.articleData.isPublish === false) {
+      return alert("Make sure you've set content to be published.")
     }
     try {
       const article = this.state.articleData
@@ -118,6 +132,7 @@ class Editor extends Component {
       content,
       createdAt,
       featuredImage,
+      categoryLabel,
       isPublish,
       lastModified,
     } = this.state.articleData
@@ -136,7 +151,9 @@ class Editor extends Component {
           <Grid container spacing={3}>
             <Grid item xl={9} lg={9} md={8} sm={12} xs={12}>
               <FormControl fullWidth>
-                <InputLabel color="primary" className={classes.Label}>Title</InputLabel>
+                <InputLabel color="primary" className={classes.Label}>
+                  Title
+                </InputLabel>
                 <Input
                   className={classes.Input}
                   name="articleTitle"
@@ -166,6 +183,16 @@ class Editor extends Component {
                     Settings
                   </Typography>
                   <FormControl fullWidth>
+                    <InputLabel>Category Label</InputLabel>
+                    <Input
+                      defaultValue
+                      name="categoryLabel"
+                      id="categoryLabel"
+                      onChange={e => this.onChangeCategoryLabel(e.target.value)}
+                      value={categoryLabel}
+                    />
+                  </FormControl>
+                  <FormControl fullWidth>
                     <InputLabel id="publish">Publish</InputLabel>
                     <Select
                       defaultValue
@@ -183,7 +210,10 @@ class Editor extends Component {
                       variant="contained"
                       onClick={() => this.onSubmitArticle()}
                     >
-                      {content !== "" && title !== "" ? (
+                      {content !== "" &&
+                      title !== "" &&
+                      categoryLabel !== "" &&
+                      isPublish !== false ? (
                         <Link to="/blog">Submit</Link>
                       ) : (
                         <a>Submit</a>
