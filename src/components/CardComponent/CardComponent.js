@@ -1,7 +1,6 @@
 import React from "react"
 import Link from "gatsby-link"
 
-import avatarImage from "../../images/my-avatar.jpg"
 import { makeStyles } from "@material-ui/core/styles"
 import {
   Card,
@@ -59,6 +58,7 @@ const useStyles = makeStyles(theme => ({
 
 const CardComponent = ({
   data: {
+    avatarImage,
     author,
     title,
     content,
@@ -85,6 +85,7 @@ const CardComponent = ({
             state={{
               data: {
                 author,
+                avatarImage,
                 title,
                 content,
                 categoryLabel,
@@ -116,6 +117,7 @@ const CardComponent = ({
               state={{
                 data: {
                   author,
+                  avatarImage,
                   title,
                   content,
                   categoryLabel,

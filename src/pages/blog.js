@@ -60,6 +60,8 @@ const Blog = () => {
   const [articles, setArticles] = useState([])
   const [{ user }] = useStateValue()
 
+  console.log(user)
+
   useEffect(() => {
     async function fetchedData() {
       const response = await fetchArticles()
@@ -101,7 +103,7 @@ const Blog = () => {
           </span>
         </Tooltip>
       ) : (
-        <Link className={classes.createPostLink} to="/new-article" state={{createUserId: user?.uid, author: user?.displayName}}>
+        <Link className={classes.createPostLink} to="/new-article" state={{createUserId: user?.uid, author: user?.displayName, avatarImage: user?.photoURL}}>
           Create New Article
           <PostAddIcon className={classes.createPostIcon} />
         </Link>
