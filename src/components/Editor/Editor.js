@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Link from "gatsby-link"
+import { v4 as uuidv4 } from "uuid"
 
 import {
   Container,
@@ -18,6 +19,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
+import { storage } from "../../firebase"
 
 class Editor extends Component {
   constructor(props) {
@@ -126,6 +128,27 @@ class Editor extends Component {
     }
   }
 
+  handleImageUpload = e => {
+    return new Promise(async (resolve, reject) => {
+      const file = e.target.files[0]
+      const fileName = uuidv4()
+      storage
+        .ref()
+        .child(`Articles/${fileName}`)
+        .put(file)
+        .then(async snapshot => {
+          const downloadURL = await storage
+            .ref()
+            .child(`Articles/${fileName}`)
+            .getDownloadURL()
+          resolve({
+            success: true,
+            data: { link: downloadURL },
+          })
+        })
+    })
+  }
+
   render() {
     const {
       title,
@@ -190,6 +213,40 @@ class Editor extends Component {
                       onChange={e => this.onChangeCategoryLabel(e.target.value)}
                       value={categoryLabel}
                     />
+                  </FormControl>
+                  <FormControl fullWidth>
+                    <InputLabel name="featuredImage">
+                      Featured Label
+                    </InputLabel>
+                    <Input
+                      inputProps={{
+                        type: "file",
+                        accept: "image/*",
+                        required: true
+                      }}
+                      className={classes.imageUploader}
+                      name="featuredLabel"
+                      id="featuredLabel"
+                      onChange={async e => {
+                        const uploadState = await this.handleImageUpload(e)
+                        if (uploadState.success) {
+                          this.setState({
+                            hasFeaturedImage: true,
+                            articleData: {
+                              ...this.state.articleData,
+                              featuredImage: uploadState.data.link,
+                            },
+                          })
+                        }
+                      }}
+                    />
+
+                    {
+                      this.state.hasFeaturedImage ?
+                      <img src={this.state.articleData.featuredImage} /> : null
+                    }
+
+
                   </FormControl>
                   <FormControl fullWidth>
                     <InputLabel id="publish">Publish</InputLabel>
