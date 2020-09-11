@@ -76,6 +76,13 @@ const CardComponent = ({
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
   }
 
+  const trimmedStr = (str, num) => {
+    const slicedStr = str.slice(0, num)
+    const lengthOfStr = str.length
+
+    return lengthOfStr > slicedStr.length ? `${slicedStr}...` : slicedStr 
+  }
+
   return (
     <>
       <Card className={classes.card}>
@@ -132,7 +139,7 @@ const CardComponent = ({
               </Typography>
             </Link>
             <Typography variant="body2" color="textSecondary" component="div">
-              {parse(content)}
+              {parse(trimmedStr(content, 95))}
             </Typography>
           </CardContent>
         </CardActionArea>
