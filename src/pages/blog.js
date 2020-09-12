@@ -45,6 +45,8 @@ const useStyles = makeStyles(theme => ({
     },
     createPostLink: {
       width: "100%",
+      display: "flex",
+      marginBottom: "10px",
     },
   },
   [theme.breakpoints.up("lg")]: {
