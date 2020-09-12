@@ -16,10 +16,16 @@ import {
   MenuItem,
 } from "@material-ui/core"
 import ArrowBackIcon from "@material-ui/icons/ArrowBack"
+import SaveAltIcon from "@material-ui/icons/SaveAlt"
+import BackupIcon from "@material-ui/icons/Backup"
+import DeleteIcon from "@material-ui/icons/Delete"
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
-import { storage } from '../../firebase';
+import { storage } from "../../firebase"
+
+const windowGlobal = typeof window !== "undefined" && window
+const local = windowGlobal.localStorage
 
 class Editor extends Component {
   constructor(props) {
@@ -130,8 +136,8 @@ class Editor extends Component {
 
   handleImageUpload = e => {
     return new Promise(async (resolve, reject) => {
-      if(!storage) {
-        return null;
+      if (!storage) {
+        return null
       }
       const file = e.target.files[0]
       const fileName = uuidv4()
@@ -149,6 +155,47 @@ class Editor extends Component {
             data: { link: downloadURL },
           })
         })
+        .catch(error => {
+          console.log(error)
+        })
+    })
+  }
+
+  handleUploadContent = () => {
+    const data = local.getItem("article-content")
+    if (!data) {
+      return null
+    }
+    return this.setState({
+      articleData: {
+        ...this.state.articleData,
+        content: JSON.parse(data),
+      },
+    })
+  }
+
+  handleSaveContent = () => {
+    if (!local) {
+      return null
+    }
+    local.setItem(
+      "article-content",
+      JSON.stringify(this.state.articleData.content)
+    )
+    JSON.stringify(this.state.articleData.content)
+  }
+
+  handleClearContent = () => {
+    const data = local.getItem("article-content")
+    if (!data) {
+      return null
+    }
+    local.clear()
+    return this.setState({
+      articleData: {
+        ...this.state.articleData,
+        content: "",
+      },
     })
   }
 
@@ -218,14 +265,12 @@ class Editor extends Component {
                     />
                   </FormControl>
                   <FormControl fullWidth>
-                    <InputLabel name="featuredImage">
-                      Featured Label
-                    </InputLabel>
+                    <InputLabel name="featuredImage">Featured Label</InputLabel>
                     <Input
                       inputProps={{
                         type: "file",
                         accept: "image/*",
-                        required: true
+                        required: true,
                       }}
                       className={classes.imageUploader}
                       name="featuredLabel"
@@ -244,12 +289,9 @@ class Editor extends Component {
                       }}
                     />
 
-                    {
-                      this.state.hasFeaturedImage ?
-                      <img src={this.state.articleData.featuredImage} /> : null
-                    }
-
-
+                    {this.state.hasFeaturedImage ? (
+                      <img src={this.state.articleData.featuredImage} />
+                    ) : null}
                   </FormControl>
                   <FormControl fullWidth>
                     <InputLabel id="publish">Publish</InputLabel>
@@ -263,6 +305,29 @@ class Editor extends Component {
                       <MenuItem value="true">True</MenuItem>
                     </Select>
                   </FormControl>
+                  <div className={classes.buttonWrapper}>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={() => this.handleSaveContent()}
+                    >
+                      <SaveAltIcon />
+                    </Button>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={() => this.handleUploadContent()}
+                    >
+                      <BackupIcon />
+                    </Button>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={() => this.handleClearContent()}
+                    >
+                      <DeleteIcon />
+                    </Button>
+                  </div>
                   <div className={classes.buttonWrapper}>
                     <Button
                       color="secondary"
