@@ -3,6 +3,7 @@ import { useIntersection } from "react-use"
 import { gsap } from "gsap"
 import avatar from "../../images/my-avatar.jpg"
 
+import Emoji from '../Emoji/Emoji'
 import "../../scss/main.scss"
 
 const Header = () => {
@@ -46,22 +47,12 @@ const Header = () => {
     <section className="hero" ref={sectionRef}>
       <img src={avatar} className="hero__image fadeIn" alt="Adrian CV avatar." />
       <h1 className="hero__title fadeIn">
-        Hi there{" "}
-        <span role="img" aria-label="Shaking hand.">
-          👋
-        </span>
+        Hi there<Emoji symbol="👋" label="shaking hand"/>
         I'm Adrian
       </h1>
       <p className="hero__subtitle fadeIn">
-        Third-year IT student{" "}
-        <span role="img" aria-label="Student person.">
-          👨‍🎓
-        </span>
-        Software Engineer Intern at Allegro 💻 passionate about web development
-        and heavy lifting{" "}
-        <span role="img" aria-label="Heavy lifters.">
-          🏋️‍♀️🏋️‍♂️
-        </span>
+        Third-year IT student <Emoji symbol="👨‍🎓" label="male student"/> Software Engineer Intern at Allegro <Emoji symbol="💻" label="laptop"/> passionate about web development
+        and heavy lifting <Emoji symbol="🏋️‍♀️🏋️‍♂️" label="male weightlifters"/>
       </p>
       <p className="hero__description fadeIn">
         Check out
@@ -76,10 +67,7 @@ const Header = () => {
         <a className="hero__link" href="#contact">
           contact me
         </a>
-        .{" "}
-        <span role="img" aria-label="Happy face.">
-          😉
-        </span>
+        . <Emoji symbol="😉" label="smiling face"/>
       </p>
       <p className="hero__quote">
         <i>Stop by and think outside the box with me.</i>

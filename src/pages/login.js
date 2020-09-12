@@ -7,8 +7,10 @@ import { Button } from "@material-ui/core"
 import { auth, provider } from "../firebase"
 import { useStateValue } from "../StateProvider"
 import { actionTypes } from "../reducer"
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import Link from 'gatsby-link'
+
+import Emoji from '../components/Emoji/Emoji'
 
 
 const Login = () => {
@@ -52,7 +54,7 @@ const Login = () => {
         <div className="login__container">
           <img src={logoImage} alt="Logo describes author's creativity" />
           <h1>
-            Sign in and become premium ⭐ member of my website
+            Sign in and become premium <Emoji symbol="⭐" label="star"/> member of my website
             with exclusive access to additional blog page area
           </h1>
           <p>zinko.adrian00@gmail.com</p>

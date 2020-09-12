@@ -13,6 +13,8 @@ import { useStateValue } from "../StateProvider"
 
 import { fetchArticles } from "../api/index"
 
+const chatRoomURL = "https://5ef7b0bee9ddb35fd003cf7d--drianko-chat.netlify.app/"
+
 const useStyles = makeStyles(theme => ({
   heroImage: {
     maskImage: "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
@@ -115,7 +117,7 @@ const Blog = () => {
           Create New Article
           <PostAddIcon className={classes.createPostIcon} />
         </Link>
-        <Link className={classes.createPostLink} to="/new-article">
+        <Link className={classes.createPostLink} to={chatRoomURL}>
         Chat with me - room 48656C6C6F
         <ChatIcon className={classes.createPostIcon} />
       </Link>

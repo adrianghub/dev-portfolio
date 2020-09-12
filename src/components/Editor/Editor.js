@@ -203,11 +203,8 @@ class Editor extends Component {
     const {
       title,
       content,
-      createdAt,
-      featuredImage,
       categoryLabel,
       isPublish,
-      lastModified,
     } = this.state.articleData
 
     const ReactQuill =
@@ -290,7 +287,7 @@ class Editor extends Component {
                     />
 
                     {this.state.hasFeaturedImage ? (
-                      <img src={this.state.articleData.featuredImage} />
+                      <img src={this.state.articleData.featuredImage} alt=""/>
                     ) : null}
                   </FormControl>
                   <FormControl fullWidth>
@@ -340,7 +337,7 @@ class Editor extends Component {
                       isPublish !== false ? (
                         <Link to="/blog">Submit</Link>
                       ) : (
-                        <a>Submit</a>
+                        <span>Submit</span>
                       )}
                     </Button>
                   </div>
