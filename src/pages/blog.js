@@ -126,7 +126,7 @@ const Blog = () => {
       </Link>
         </>
       )}
-      <Container maxWidth="lg" className={classes.blogsContainer}>
+      <Container maxWidth="xl" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
           All Articles
         </Typography>
