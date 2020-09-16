@@ -13,7 +13,7 @@ import { useStateValue } from "../StateProvider"
 
 import { fetchArticles } from "../api/index"
 
-const chatRoomURL = "https://5ef7b0bee9ddb35fd003cf7d--drianko-chat.netlify.app/"
+const chatRoomURL = "https://5f6295e62bf496668f86b841--happy-brown-3e3745.netlify.app/"
 
 const useStyles = makeStyles(theme => ({
   heroImage: {
