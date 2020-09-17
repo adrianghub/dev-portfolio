@@ -11,6 +11,7 @@ import PropTypes from "prop-types"
 import Navbar from "../Navbar/Navbar"
 import NavItems from "../Navbar/NavItems/NavItems"
 import Header from "../Header/Header"
+import Cla from '../CLA/CLA'
 import Skills from "../Skills/Skills"
 import Projects from "../Projects/Projects"
 import Contact from "../Contact/Contact"
@@ -36,6 +37,7 @@ const Layout = () => {
         <NavItems icon="🌛" />
       </Navbar>
       <Header />
+      <Cla />
       <Skills />
       <Projects data={data} />
       <Contact />

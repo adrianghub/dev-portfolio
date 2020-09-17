@@ -8,12 +8,10 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Box, Container, Typography, Grid, Tooltip } from "@material-ui/core"
 import { Parallax } from "react-parallax"
 import PostAddIcon from "@material-ui/icons/PostAdd"
-import ChatIcon from '@material-ui/icons/Chat';
 import { useStateValue } from "../StateProvider"
 
 import { fetchArticles } from "../api/index"
 
-const chatRoomURL = "https://5f6298509448358487ff91e2--happy-brown-3e3745.netlify.app/"
 
 
 const useStyles = makeStyles(theme => ({
@@ -107,24 +105,12 @@ const Blog = () => {
             <PostAddIcon className={classes.createPostIcon} />
           </span>
         </Tooltip>
-        <Tooltip title="Sign in and chat with me">
-        <span className={classes.createPostLink}>
-          Chat with me - room 48656C6C6F
-          <ChatIcon className={classes.createPostIcon} />
-        </span>
-      </Tooltip>
       </>
       ) : (
-        <>
         <Link className={classes.createPostLink} to="/new-article" state={{createUserId: user?.uid, author: user?.displayName, avatarImage: user?.photoURL}}>
           Create New Article
           <PostAddIcon className={classes.createPostIcon} />
         </Link>
-        <Link className={classes.createPostLink} to={chatRoomURL}>
-        Chat with me - room 48656C6C6F
-        <ChatIcon className={classes.createPostIcon} />
-      </Link>
-        </>
       )}
       <Container maxWidth="xl" className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
