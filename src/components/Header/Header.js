@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react"
 import { useIntersection } from "react-use"
 import { gsap } from "gsap"
-import avatar from "../../images/my-avatar.jpg"
+import avatar from "../../images/my-avatar.png"
 
 import Emoji from '../Emoji/Emoji'
 import "../../scss/main.scss"
