@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Link from "gatsby-link"
 import { v4 as uuidv4 } from "uuid"
-
+import Compressor from "compressorjs"
 import {
   Container,
   Card,
@@ -19,6 +19,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 import SaveAltIcon from "@material-ui/icons/SaveAlt"
 import BackupIcon from "@material-ui/icons/Backup"
 import DeleteIcon from "@material-ui/icons/Delete"
+
 import classes from "./Editor.module.css"
 import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
@@ -47,18 +48,24 @@ class Editor extends Component {
   }
 
   modules = {
-    toolbar: [
-      ["bold", "italic", "underline", "strike"],
-      ["blockquote", "code-block"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ indent: "-1" }, { indent: "+1" }],
-      [{ direction: "rtl" }],
-      [{ size: ["small", false, "large", "huge"] }],
-      [{ color: [] }, { background: [] }],
-      [{ font: [] }],
-      [{ align: [] }],
-      ["clean"],
-    ],
+    toolbar: {
+      container: [
+        ["bold", "italic", "underline", "strike"],
+        ["blockquote", "code-block"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ indent: "-1" }, { indent: "+1" }],
+        [{ direction: "rtl" }],
+        [{ size: ["small", false, "large", "huge"] }],
+        [{ color: [] }, { background: [] }],
+        [{ font: [] }],
+        [{ align: [] }],
+        ["link", "image"],
+        ["clean"],
+      ],
+      handlers: {
+        image: () => this.handleQuillImage(),
+      },
+    },
   }
 
   formats = [
@@ -161,6 +168,61 @@ class Editor extends Component {
     })
   }
 
+  fileCompress = file => {
+    return new Promise((res, rej) => {
+      new Compressor(file, {
+        file: "File",
+        quality: 0.5,
+        maxWidth: 640,
+        maxHeight: 640,
+        success(file) {
+          return res({
+            success: true,
+            file: file,
+          })
+        },
+        error(err) {
+          return res({
+            success: false,
+            message: err.message,
+          })
+        },
+      })
+    })
+  }
+
+  componentDidMount() {
+    const handleQuillImage = () => {
+      const input = document.createElement("input")
+      input.setAttribute("type", "file")
+      input.setAttribute("accept", "image/*")
+      input.click()
+      input.onchange = async () => {
+        const file = input.files[0]
+        const compressState = await this.fileCompress(file)
+        if (compressState.success) {
+          const fileName = uuidv4()
+          storage
+            .ref()
+            .child(`Articles/${fileName}`)
+            .put(compressState.file)
+            .then(async snapshot => {
+              const downloadURL = await storage
+                .ref()
+                .child(`Articles/${fileName}`)
+                .getDownloadURL()
+              let quill = this.reactQuillRef.getEditor()
+              const range = quill.getSelection(true)
+              quill.insertEmbed(range.index, "image", downloadURL)
+            })
+            .catch(error => {
+              console.log(error)
+            })
+        }
+      }
+    }
+  }
+
   handleUploadContent = () => {
     const data = local.getItem("article-content")
     if (!data) {
@@ -200,12 +262,7 @@ class Editor extends Component {
   }
 
   render() {
-    const {
-      title,
-      content,
-      categoryLabel,
-      isPublish,
-    } = this.state.articleData
+    const { title, content, categoryLabel, isPublish } = this.state.articleData
 
     const ReactQuill =
       typeof window === "object" ? require("react-quill") : () => false
@@ -262,7 +319,7 @@ class Editor extends Component {
                     />
                   </FormControl>
                   <FormControl fullWidth>
-                    <InputLabel name="featuredImage">Featured Label</InputLabel>
+                    <InputLabel name="featuredImage" />
                     <Input
                       inputProps={{
                         type: "file",
@@ -287,7 +344,7 @@ class Editor extends Component {
                     />
 
                     {this.state.hasFeaturedImage ? (
-                      <img src={this.state.articleData.featuredImage} alt=""/>
+                      <img src={this.state.articleData.featuredImage} alt="" />
                     ) : null}
                   </FormControl>
                   <FormControl fullWidth>
