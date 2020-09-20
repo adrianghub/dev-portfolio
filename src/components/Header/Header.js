@@ -47,7 +47,7 @@ const Header = () => {
     <section className="hero" ref={sectionRef}>
       <img src={avatar} className="hero__image fadeIn" alt="Adrian CV avatar." />
       <h1 className="hero__title fadeIn">
-        Hi there<Emoji symbol="👋" label="shaking hand"/>
+        Hi there <img className="hero__gif" src="https://user-images.githubusercontent.com/1303154/88677602-1635ba80-d120-11ea-84d8-d263ba5fc3c0.gif" alt="Friendly moving hand." />
         I'm Adrian
       </h1>
       <p className="hero__subtitle fadeIn">
