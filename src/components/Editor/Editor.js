@@ -191,8 +191,8 @@ class Editor extends Component {
     })
   }
 
-  componentDidMount() {
-    const handleQuillImage = () => {
+
+    handleQuillImage = () => {
       const input = document.createElement("input")
       input.setAttribute("type", "file")
       input.setAttribute("accept", "image/*")
@@ -221,7 +221,6 @@ class Editor extends Component {
         }
       }
     }
-  }
 
   handleUploadContent = () => {
     const data = local.getItem("article-content")
