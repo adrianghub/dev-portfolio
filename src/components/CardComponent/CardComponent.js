@@ -13,7 +13,7 @@ import {
   Box,
   Avatar,
 } from "@material-ui/core"
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import parse from "html-react-parser"
 import { deleteRecord } from '../../api/index'
 
@@ -82,6 +82,16 @@ const CardComponent = ({
     const lengthOfStr = str.length
 
     return lengthOfStr > slicedStr.length ? `${slicedStr}...` : slicedStr 
+  }
+
+  const deleteCard = (e) => {
+    deleteRecord(id);
+
+    const elementoToDelete = e.target.parentNode.parentNode.parentNode.parentNode
+    const del = window.confirm("Are you sure you want to delete this record?");
+    if (del === true) {
+      return elementoToDelete.remove();
+    }
   }
 
   return (
@@ -161,7 +171,7 @@ const CardComponent = ({
             </Box>
           </Box>
           <Box>
-            <FavoriteBorderIcon onClick={deleteRecord(id)}/>
+            <DeleteOutlineIcon style={{ cursor: 'pointer' }} onClick={deleteCard}/>
           </Box>
         </CardActions>
       </Card>
