@@ -85,11 +85,10 @@ const CardComponent = ({
   }
 
   const deleteCard = (e) => {
-    deleteRecord(id);
-
     const elementoToDelete = e.target.parentNode.parentNode.parentNode.parentNode
     const del = window.confirm("Are you sure you want to delete this record?");
     if (del === true) {
+      deleteRecord(id);
       return elementoToDelete.remove();
     }
   }
