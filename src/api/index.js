@@ -27,7 +27,7 @@ export async function fetchArticles() {
   }
 }
 
-async function deleteRecord (id) {
+export async function deleteRecord (id) {
   db.collection('Articles')
   .doc(id).delete()
 }
