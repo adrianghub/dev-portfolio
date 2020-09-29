@@ -15,6 +15,7 @@ import {
 } from "@material-ui/core"
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder"
 import parse from "html-react-parser"
+import { deleteRecord } from '../../api/index'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -160,7 +161,7 @@ const CardComponent = ({
             </Box>
           </Box>
           <Box>
-            <FavoriteBorderIcon />
+            <FavoriteBorderIcon onClick={deleteRecord(id)}/>
           </Box>
         </CardActions>
       </Card>
