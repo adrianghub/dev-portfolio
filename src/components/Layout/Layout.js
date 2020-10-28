@@ -8,6 +8,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
+import Modal from '../Modal/Modal'
 import Navbar from "../Navbar/Navbar"
 import NavItems from "../Navbar/NavItems/NavItems"
 import Header from "../Header/Header"
@@ -33,6 +34,7 @@ const Layout = () => {
 
   return (
     <div className={classes.Container}>
+      <Modal />
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
