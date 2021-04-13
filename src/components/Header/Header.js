@@ -51,8 +51,10 @@ const Header = () => {
         I'm Adrian
       </h1>
       <p className="hero__subtitle fadeIn">
-        Third-year IT student <Emoji symbol="👨‍🎓" label="male student"/> Software Engineer Intern at Allegro <Emoji symbol="💻" label="laptop"/> passionate about web development
-        and heavy lifting <Emoji symbol="🏋️‍♀️🏋️‍♂️" label="male weightlifters"/>
+      <span className="break"> {">"} Junior Webmaster <Emoji symbol="💻" label="laptop"/></span>
+      <span className="break"> {">"} I've recently graduated from engineering studies <Emoji symbol="👨‍🎓" label="male student"/> </span>
+      <span className="break"> {">"} Now, I'm looking for new opportunities especially in web development field. 🐱‍🏍</span>
+      <span className="break"> {">"} In my spare time I enjoy heavy lifting <Emoji symbol="🏋️‍♀️🏋️‍♂️" label="male weightlifters"/></span>
       </p>
       <p className="hero__description fadeIn">
         Check out
