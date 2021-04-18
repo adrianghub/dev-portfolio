@@ -5,9 +5,9 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 
 import "../../scss/main.scss"
 
-import pdfFile from "../../AdrianZinko-Resume2020.pdf"
+import pdfFile from "../../AdrianZinko-Resume2021.pdf"
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+pdfjs.GlobalWorkerOptions.workerSrc = `https://es.scribd.com/document/503387916/AdrianZinko-Resume2021`
 
 
 const PdfReader = () => {
