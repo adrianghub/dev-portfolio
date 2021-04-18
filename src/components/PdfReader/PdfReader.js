@@ -7,7 +7,7 @@ import "../../scss/main.scss"
 
 import pdfFile from "../../AdrianZinko-Resume2021.pdf"
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://es.scribd.com/document/503387916/AdrianZinko-Resume2021`
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 
 const PdfReader = () => {
@@ -27,7 +27,7 @@ const PdfReader = () => {
     <div className="PdfReader">
         <div className="PdfReader__container">
           <div className="PdfReader__container__load">
-            <a href="https://drive.google.com/file/d/1TKwlFvbzweOfJQoFkcLDzjVtUFsVUvOq/view?usp=sharing" target="_blank" rel="noreferrer"> <CloudDownloadIcon/></a>
+            <a href="https://es.scribd.com/document/503387916/AdrianZinko-Resume2021" target="_blank" rel="noreferrer"> <CloudDownloadIcon/></a>
           </div>
           <div className="PdfReader__container__document">
             <Document
