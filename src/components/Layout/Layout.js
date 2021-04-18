@@ -16,6 +16,8 @@ import Skills from "../Skills/Skills"
 import Projects from "../Projects/Projects"
 import Contact from "../Contact/Contact"
 
+import Scroll from "../Scroll/Scroll"
+
 import { fetchProjects } from "../../api/index"
 
 import classes from "./Layout.module.css"
@@ -33,6 +35,7 @@ const Layout = () => {
 
   return (
     <div className={classes.Container}>
+      <Scroll showBelow={250} />
       <Navbar>
         <NavItems icon="🌛" />
       </Navbar>
