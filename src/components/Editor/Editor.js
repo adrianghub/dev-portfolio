@@ -25,6 +25,8 @@ import "react-quill/dist/quill.snow.css"
 import db from "../../firebase"
 import { storage } from "../../firebase"
 
+import '../../scss/modules/article.scss'
+
 const windowGlobal = typeof window !== "undefined" && window
 const local = windowGlobal.localStorage
 
@@ -291,6 +293,7 @@ class Editor extends Component {
               </FormControl>
               <FormControl fullWidth>
                 <ReactQuill
+                  className={classes.EditorArea}
                   ref={el => {
                     this.reactQuillRef = el
                   }}
