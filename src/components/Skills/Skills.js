@@ -4,6 +4,37 @@ import "../../scss/main.scss"
 
 const Skills = () => {
   return (
+    <div id="particle-container">
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
+    <div className="particle"></div>
     <section id="my-skills" className="skills">
       <h2 className="skills__title">My skills</h2>
       <section className="skills-list">
@@ -66,6 +97,7 @@ const Skills = () => {
         </ul>
       </section>
     </section>
+    </div>
   )
 }
 

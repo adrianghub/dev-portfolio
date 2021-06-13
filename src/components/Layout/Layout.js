@@ -11,7 +11,6 @@ import PropTypes from "prop-types"
 import Navbar from "../Navbar/Navbar"
 import NavItems from "../Navbar/NavItems/NavItems"
 import Header from "../Header/Header"
-import Cla from '../CLA/CLA'
 import Skills from "../Skills/Skills"
 import Projects from "../Projects/Projects"
 import Contact from "../Contact/Contact"
@@ -20,8 +19,6 @@ import Scroll from "../Scroll/Scroll"
 
 import { fetchProjects } from "../../api/index"
 
-import classes from "./Layout.module.css"
-
 const Layout = () => {
   const [data, setData] = useState({})
 
@@ -29,21 +26,52 @@ const Layout = () => {
     async function fetchedData() {
       const response = await fetchProjects()
       setData(response)
-    } 
-    fetchedData();
+    }
+    fetchedData()
   }, [])
 
   return (
-    <div className={classes.Container}>
-      <Scroll showBelow={250} />
-      <Navbar>
-        <NavItems icon="🌛" />
-      </Navbar>
-      <Header />
-      <Cla />
-      <Skills />
-      <Projects data={data} />
-      <Contact />
+    <div id="particle-container">
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div className="particle"></div>
+      <div>
+        <Scroll showBelow={250} />
+        <Navbar>
+          <NavItems icon="🌛" />
+        </Navbar>
+        <Header />
+        <Skills />
+        <Projects data={data} />
+        <Contact />
+      </div>
     </div>
   )
 }

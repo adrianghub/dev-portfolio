@@ -10,9 +10,9 @@ setConfig({
 })
 
 const IndexPage = () => (
-      <Layout>
-        <SEO title="Home" />
-      </Layout>
+  <Layout>
+    <SEO title="Home" />
+  </Layout>
 )
 
 export default IndexPage
