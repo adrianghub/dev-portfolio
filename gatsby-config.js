@@ -3,11 +3,10 @@ module.exports = {
     title: `Adrian Zinko Dev Portfolio`,
     description: `Personal portfolio with about, skills, projects and contact section`,
     author: `@adrianzinko`,
+    keywords: `portfolio, react, gatsby, blog`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-manifest`,

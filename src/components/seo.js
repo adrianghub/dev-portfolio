@@ -19,13 +19,16 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            keywords
           }
         }
       }
     `
   )
 
+  const defaultTitle = site.siteMetadata?.title
   const metaDescription = description || site.siteMetadata.description
+  const keywords = site.siteMetadata.keywords
 
   return (
     <Helmet
@@ -33,11 +36,15 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: keywords,
         },
         {
           property: `og:title`,
@@ -74,7 +81,6 @@ function SEO({ description, lang, meta, title }) {
 
 SEO.defaultProps = {
   lang: `en`,
-  title: "Adrian Zinko Dev Portfolio",
   meta: [],
   description: ``,
 }
