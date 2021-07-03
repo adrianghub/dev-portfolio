@@ -4,10 +4,6 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /firebase/,
-            use: loaders.null(),
-          },
-          {
             test: /canvas/,
             use: loaders.null(),
           },
