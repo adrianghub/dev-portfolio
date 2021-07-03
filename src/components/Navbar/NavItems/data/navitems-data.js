@@ -1,7 +1,7 @@
 export const NavItemsData = [
   {
     title: "Blog",
-    url: "/blog",
+    url: "https://java-book.netlify.app/blog",
     class: "nav__item",
   },
   {

@@ -41,7 +41,7 @@ const Login = () => {
           <h1>
             Hello, {user?.displayName}
           </h1>
-          <Button variant="contained" color="secondary"><Link className="back" to="/blog"><ArrowBackIcon/>Back To Blog Page</Link></Button>
+          <Button variant="contained" color="secondary"><Link className="back" to="/"><ArrowBackIcon/>Back To Main Page</Link></Button>
         </div>
       </div>
     </>

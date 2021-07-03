@@ -40,7 +40,7 @@ const Header = () => {
       </h1>
       <p className="hero__subtitle fadeIn">
       <span className="break"> {">"} JS Developer <Emoji symbol="💻" label="laptop"/></span>
-      <span className="break"> {">"} Bachelor of Engineering - 29/03/21 <Emoji symbol="👨‍🎓" label="male student"/> </span>
+      <span className="break"> {">"} Bachelor of Engineering - 03/21 <Emoji symbol="👨‍🎓" label="male student"/> </span>
       <span className="break"> {">"} Looking for new opportunities. 🐱‍🏍</span>
       <span className="break"> {">"} In my spare time I enjoy heavy lifting <Emoji symbol="🏋️‍♀️🏋️‍♂️" label="male weightlifters"/></span>
       </p>
